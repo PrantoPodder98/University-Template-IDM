@@ -1,0 +1,13 @@
+example: Find the package ”krantikal” from featured trips, view the travel plan, and then book it.
+
+1. Find the Faculty name "Dr. Sarah Johnson" and his Information from cse department
+2. Find the "B.Sc. in Computer Engineering" Information
+3. Find publication "Comparative analysis of intrusion detection systems and machine learning based model analysis through decision tree" from Research
+4. Find Research overview->Research Collaboration
+5. Find ALL programs List FROM admission 
+6. Find Online application->submit application button
+7. Find "Fall 2024 Semester Registration Deadline" announcement details
+8. Find Mission and Vision
+9. Find "the founding Vision" details from Information/history
+10. Find "Nextgen University Launches Innovative AI Research Cente" news details
+11. Find event register form from event

@@ -1,0 +1,72 @@
+.custom-breadcrumb {
+    background: linear-gradient(to right, rgba(34, 179, 105, 0.1), rgba(34, 179, 105, 0.05));
+    padding: 15px 0;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 20px;
+    list-style: none;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-item a {
+    color: #307e4a;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #22B369;
+    background-color: rgba(34, 179, 105, 0.1);
+}
+
+.breadcrumb-item.active {
+    color: #22B369;
+    font-weight: 600;
+    padding: 5px 10px;
+}
+
+.breadcrumb-separator {
+    margin: 0 5px;
+    color: #999;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-separator i {
+    font-size: 12px;
+}
+
+/* Animation for hover effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.breadcrumb-item a:hover {
+    animation: pulse 0.3s ease-in-out;
+}

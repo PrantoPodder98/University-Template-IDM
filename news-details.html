@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen Content Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #307e4a;
+            --secondary-color: #215a34;
+        }
+
+        .article-header {
+            position: relative;
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+
+        .article-meta {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin: 15px 0;
+        }
+
+        .article-meta i {
+            margin-right: 5px;
+        }
+
+        .article-meta span {
+            margin-right: 20px;
+        }
+
+        .article-image {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #343a40;
+        }
+
+        .article-tags {
+            margin: 30px 0;
+        }
+
+        .tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .share-buttons {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .facebook { background-color: #3b5998; }
+        .twitter { background-color: #1da1f2; }
+        .linkedin { background-color: #0077b5; }
+        .whatsapp { background-color: #25d366; }
+
+        .related-articles {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .related-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .related-image {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .author-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">News and Event</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="news.html">News</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="">Details</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <div class="article-header">
+            <div class="container">
+                <h1>Nextgen University Launches Innovative AI Research Center</h1>
+                <div class="article-meta">
+                    <span><i class="fas fa-calendar-alt"></i> June 15, 2024</span>
+                    <span><i class="fas fa-user"></i> Prof. Sarah Johnson</span>
+                    <span><i class="fas fa-folder"></i> Research</span>
+                    <span><i class="fas fa-comments"></i> 15 Comments</span>
+                    <span><i class="fas fa-eye"></i> 2,547 Views</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="AI Research Center" class="img-fluid article-image">
+                    
+                    <div class="article-content">
+                        <p class="lead">Nextgen University's AI Research Center has embarked on a groundbreaking project that combines artificial intelligence with sustainable computing solutions, marking a significant milestone in eco-friendly technology development.</p>
+    
+                        <p>The project, led by Professor Sarah Johnson and her team of international researchers, aims to revolutionize how AI systems are designed and operated with environmental sustainability at its core.</p>
+    
+                        <blockquote>
+                            "We're not just building faster systems; we're creating smarter, more efficient solutions that consider their environmental impact from the ground up," explains Professor Johnson.
+                        </blockquote>
+    
+                        <h2>Revolutionary Approach to Sustainable Computing</h2>
+                        <p>The research team has developed a novel approach that reduces energy consumption in AI systems by up to 60% while maintaining high performance standards. This breakthrough could have far-reaching implications for the future of computing...</p>
+    
+                        <h2>Global Collaboration</h2>
+                        <p>The project brings together researchers from 12 different countries, making it one of the largest international collaborations in sustainable computing...</p>
+    
+                        <div class="article-tags">
+                            <a href="#" class="tag">#ArtificialIntelligence</a>
+                            <a href="#" class="tag">#SustainableComputing</a>
+                            <a href="#" class="tag">#Research</a>
+                            <a href="#" class="tag">#Innovation</a>
+                        </div>
+    
+                        <div class="share-buttons">
+                            <h5>Share this article:</h5>
+                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+    
+                        <div class="author-section">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=800&q=80" alt="Author" class="author-image">
+                                </div>
+                                <div class="col-md-10">
+                                    <h5>Prof. Sarah Johnson</h5>
+                                    <p>Director of AI Research Center at Nextgen University, with over 15 years of experience in sustainable computing and artificial intelligence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top: 20px;">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Table of Contents</h5>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="text-decoration-none">Introduction</a></li>
+                                    <li><a href="#" class="text-decoration-none">Revolutionary Approach</a></li>
+                                    <li><a href="#" class="text-decoration-none">Global Collaboration</a></li>
+                                    <li><a href="#" class="text-decoration-none">Future Implications</a></li>
+                                    <li><a href="#" class="text-decoration-none">Conclusion</a></li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Latest News</h5>
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <small class="text-muted">June 14, 2024</small>
+                                        <p class="mb-1">Student Researchers Win International Award</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <small class="text-muted">June 13, 2024</small>
+                                        <p class="mb-1">New Scholarship Program Announced</p>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <small class="text-muted">June 12, 2024</small>
+                                        <p class="mb-1">Campus Sustainability Initiative Launch</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <section class="related-articles">
+            <div class="container">
+                <h2 class="mb-4">Related Articles</h2>
+                <div class="row g-4">
+                    <!-- Related Article 1 -->
+                    <div class="col-md-4">
+                        <div class="related-card card">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Related Article 1" class="related-image">
+                            <span class="category-badge">Research</span>
+                            <div class="card-body">
+                                <h5 class="card-title">Quantum Computing Breakthrough at Nextgen Labs</h5>
+                                <p class="card-text">Researchers achieve significant progress in quantum error correction...</p>
+                                <small class="text-muted">June 10, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Related Article 2 -->
+                    <div class="col-md-4">
+                        <div class="related-card card">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Related Article 2" class="related-image">
+                            <span class="category-badge">Innovation</span>
+                            <div class="card-body">
+                                <h5 class="card-title">New Green Computing Initiative Launched</h5>
+                                <p class="card-text">University unveils plans for sustainable data centers...</p>
+                                <small class="text-muted">June 8, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Related Article 3 -->
+                    <div class="col-md-4">
+                        <div class="related-card card">
+                            <img src="https://images.unsplash.com/photo-1526666923127-b2970f64b422?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Related Article 3" class="related-image">
+                            <span class="category-badge">Technology</span>
+                            <div class="card-body">
+                                <h5 class="card-title">AI Ethics Committee Established</h5>
+                                <p class="card-text">New committee to oversee ethical AI development...</p>
+                                <small class="text-muted">June 5, 2024</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

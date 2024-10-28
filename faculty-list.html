@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .faculty-filter-btn {
+            margin: 5px;
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            border: 2px solid #22B369;
+            color: #22B369;
+        }
+
+        .faculty-filter-btn.active {
+            background-color: #22B369;
+            color: white;
+        }
+
+        .faculty-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .faculty-card .faculty-img {
+            height: 250px;
+            width: 100%;
+            /* Ensure the image takes up the full width of its container */
+            object-fit: cover;
+            /* Maintain aspect ratio while filling the container */
+            display: block;
+            /* Prevent extra spacing from inline elements */
+        }
+
+        .expertise-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 2px;
+            border-radius: 20px;
+            background-color: #e9f7f0;
+            color: #22B369;
+            font-size: 0.8rem;
+        }
+
+        .social-links a {
+            color: #307e4a;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #22B369;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                    <!-- <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span> -->
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Faculty</a>
+                    <!-- <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span> -->
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#">School of Engineering</a>
+                    <!-- <span class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </span> -->
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Our Distinguished Faculty</h2>
+
+        <!-- Search Box -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="facultySearch"
+                    placeholder="Search faculty by name, department, or expertise...">
+            </div>
+        </div>
+
+        <!-- Department Filter -->
+        <div class="d-flex justify-content-center flex-wrap mb-4">
+            <button class="faculty-filter-btn active" data-filter="all">All Departments</button>
+            <button class="faculty-filter-btn" data-filter="cse">CSE</button>
+            <button class="faculty-filter-btn" data-filter="eee">EEE</button>
+            <button class="faculty-filter-btn" data-filter="civil">Civil</button>
+            <button class="faculty-filter-btn" data-filter="math">Math and Physics</button>
+            <button class="faculty-filter-btn" data-filter="archi">Architecture</button>
+        </div>
+
+        
+        <!-- <div class="row" id="facultyGrid">
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="sobe">
+                <div class="card faculty-card">
+                    <a href="faculty-details.html" class="no-underline">
+                        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=800&q=80"
+                            class="faculty-img" alt="Dr. Sarah Johnson">
+                        <div class="card-body">
+                            <h5 class="card-title">Dr. Sarah Johnson</h5>
+                            <p class="card-subtitle mb-2 text-muted">Professor of Business Administration</p>
+                            <div class="mb-3">
+                                <span class="expertise-tag">Strategic Management</span>
+                                <span class="expertise-tag">Leadership</span>
+                            </div>
+                            <p class="card-text">Ph.D. in Business Administration from Harvard Business School</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-google-scholar"></i></a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="seps">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1615109398623-88346a601842?w=800&q=80"
+                        class="faculty-img" alt="Dr. Michael Chen">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Michael Chen</h5>
+                        <p class="card-subtitle mb-2 text-muted">Associate Professor of Computer Science</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">AI & Machine Learning</span>
+                            <span class="expertise-tag">Data Science</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Computer Science from MIT</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="sobe">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=800&q=80"
+                        class="faculty-img" alt="Dr. Emma Davis">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Emma Davis</h5>
+                        <p class="card-subtitle mb-2 text-muted">Professor of Marketing</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Digital Marketing</span>
+                            <span class="expertise-tag">Consumer Behavior</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Marketing from Stanford University</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="seps">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80"
+                        class="faculty-img" alt="Dr. Sophia Martinez">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Sophia Martinez</h5>
+                        <p class="card-subtitle mb-2 text-muted">Assistant Professor of Physics</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Quantum Physics</span>
+                            <span class="expertise-tag">Nanotechnology</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Physics from Caltech</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="sohs">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" class="faculty-img"
+                        alt="Dr. Robert Lee">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Robert Lee</h5>
+                        <p class="card-subtitle mb-2 text-muted">Professor of Economics</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Macroeconomics</span>
+                            <span class="expertise-tag">Behavioral Economics</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Economics from University of Chicago</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="seps">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80"
+                        class="faculty-img" alt="Dr. Olivia Wang">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Olivia Wang</h5>
+                        <p class="card-subtitle mb-2 text-muted">Professor of Biology</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Genetics</span>
+                            <span class="expertise-tag">Cell Biology</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Biology from University of Oxford</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="sobe">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=800&q=80"
+                        class="faculty-img" alt="Dr. James Taylor">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. James Taylor</h5>
+                        <p class="card-subtitle mb-2 text-muted">Associate Professor of Finance</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Investment Banking</span>
+                            <span class="expertise-tag">Corporate Finance</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Finance from London School of Economics</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="shls">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=800&q=80"
+                        class="faculty-img" alt="Dr. Aiden Patel">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Aiden Patel</h5>
+                        <p class="card-subtitle mb-2 text-muted">Professor of Electrical Engineering</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Microelectronics</span>
+                            <span class="expertise-tag">Embedded Systems</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Electrical Engineering from UC Berkeley</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 faculty-item" data-department="shls">
+                <div class="card faculty-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80"
+                        class="faculty-img" alt="Dr. Isabella Gomez">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Isabella Gomez</h5>
+                        <p class="card-subtitle mb-2 text-muted">Assistant Professor of Chemistry</p>
+                        <div class="mb-3">
+                            <span class="expertise-tag">Organic Chemistry</span>
+                            <span class="expertise-tag">Chemical Synthesis</span>
+                        </div>
+                        <p class="card-text">Ph.D. in Chemistry from Yale University</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Faculty Cards Grid -->
+        <div class="row" id="facultyGrid">
+            <!-- Faculty cards will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/faculty-data.js"></script>
+    <script src="asset/js/faculty-grid.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.faculty-filter-btn');
+            const facultyItems = document.querySelectorAll('.faculty-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    facultyItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-department') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('facultySearch');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                facultyItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

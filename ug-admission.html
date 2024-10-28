@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen Content Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .ug-admission-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .admission-header .badge {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+        
+        .deadline-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ffebee;
+            color: #c62828;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+        }
+        
+        .admission-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .admission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .bg-primary-soft { background: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+        .bg-success-soft { background: rgba(25, 135, 84, 0.1); color: #198754; }
+        .bg-info-soft { background: rgba(13, 202, 240, 0.1); color: #0dcaf0; }
+        
+        .admission-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .program-list, .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+        }
+        
+        .program-list li, .requirements-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .program-list li:before, .requirements-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #198754;
+        }
+        
+        .tuition-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #dee2e6;
+        }
+        
+        .scholarship-note {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .apply-card {
+            background: #307e4a;
+            color: white;
+            padding: 3rem;
+            border-radius: 30px;
+            margin-top: 2rem;
+        }
+        
+        .apply-now-btn {
+            background: white;
+            color: #307e4a;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.25rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 1.5rem 0;
+        }
+        
+        .apply-now-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .help-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .help-text a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .admission-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .apply-card {
+                padding: 2rem;
+            }
+        }
+        </style>
+        
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Application</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#">UG Admission</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <section class="ug-admission-section py-5">
+            <div class="container">
+                <div class="admission-header text-center mb-5">
+                    <span class="badge bg-success mb-2">Admission Open 2024</span>
+                    <h1 class="display-4 mb-3">Undergraduate Admission</h1>
+                    <p class="lead text-muted">Take the first step towards your future with Nextgen University</p>
+                    <div class="deadline-banner">
+                        <i class="fas fa-clock"></i>
+                        Application Deadline: October 15, 2024
+                    </div>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nihil repudiandae eveniet eum maiores sit aliquam nulla quas excepturi voluptates consequatur nam cumque similique dolore temporibus rerum deleniti aperiam eius, dignissimos veritatis debitis. Doloribus optio voluptatem beatae voluptates aut! Et, reprehenderit, laborum fugit cumque explicabo provident nobis numquam, ratione veritatis debitis illo quam laboriosam harum labore. Vel pariatur adipisci animi non consequatur ad, reiciendis quibusdam a recusandae autem architecto incidunt facere earum deleniti laborum atque ipsum id sequi maiores voluptate iste ipsam. Delectus exercitationem eum asperiores est beatae possimus non aperiam itaque minus odio nihil voluptatum animi maxime, nobis facere sint earum doloremque! In, repellat. Sed dolore reprehenderit ipsam odio, sunt earum assumenda alias, asperiores quaerat deleniti sit laboriosam, vel vero laudantium ipsa fugiat esse aliquid! Tempora id minus quisquam quas corrupti eaque, voluptatibus tempore molestiae fugit recusandae reiciendis laborum ea nemo porro earum possimus quod commodi nihil magnam reprehenderit. Veniam voluptate deserunt aperiam delectus sint aliquid repellat eveniet illo corrupti, nam voluptatem accusamus distinctio, animi molestias ducimus eos iure ratione dicta! Error rem delectus vitae expedita dolorum ullam amet veritatis, libero ratione placeat, cupiditate incidunt nisi illum fugiat neque! Modi dicta doloremque voluptates exercitationem vitae tenetur at quibusdam id adipisci. Omnis nihil magnam sunt similique saepe sit atque eos, delectus blanditiis, qui tenetur nostrum ut vero, cupiditate eaque? Soluta molestias ut, nemo facere magni earum culpa at similique optio sapiente eos, enim, cum quis ipsum quasi maiores voluptates mollitia? Eius tempora quod voluptatem deleniti alias nihil in debitis voluptates repellat repudiandae quis hic, doloribus officiis fugiat soluta esse totam est, commodi excepturi aut ratione. Tempora hic labore sunt deleniti reprehenderit nam rem pariatur error quod nisi amet, suscipit quia aliquid! Dolores vitae id asperiores nemo aliquid earum deserunt aliquam reprehenderit nihil quis consequuntur facilis, quod provident iste molestias accusantium laudantium excepturi totam et at inventore non. Illum nam hic culpa repudiandae officia et odit, modi doloribus amet temporibus porro recusandae minima in, suscipit repellat nulla doloremque. Ex odio qui laboriosam illum voluptatem nostrum velit perspiciatis voluptas repellat ab asperiores molestiae libero tempora commodi, deleniti illo, expedita labore ipsam vero. Sint aut hic dolores reiciendis, facilis porro optio voluptates recusandae debitis, nihil esse. Deserunt voluptate quae similique perspiciatis iure dolorum libero? Commodi ab culpa incidunt architecto magni, perferendis neque eaque officiis iure ipsa excepturi quis qui placeat temporibus iste animi amet distinctio maiores, recusandae itaque. Assumenda ipsum esse corrupti nesciunt eaque. Repellendus praesentium nobis incidunt nostrum deleniti id aperiam similique hic tempora natus eaque, sapiente, neque est, nemo modi aut facere accusantium officiis! Ex enim officiis sequi culpa blanditiis maxime, dolores accusantium harum corrupti. Hic voluptates quisquam aspernatur unde ad ullam doloribus sapiente labore iure fugit autem in voluptate quam obcaecati quidem reprehenderit nostrum assumenda temporibus quas quod facere, cupiditate atque dolore praesentium. Eum quos dolorem mollitia sit ab repellat tempore. At, doloremque doloribus! Suscipit eius reiciendis, ratione aliquid nesciunt obcaecati inventore ut laboriosam odio, animi dicta perferendis praesentium reprehenderit corporis non repudiandae velit sapiente consectetur est, rem perspiciatis ipsum tenetur cum eos. Adipisci quisquam libero facere, sequi itaque dicta cupiditate suscipit. Illum, praesentium perspiciatis nisi facilis aspernatur vero eius ipsam quas aperiam autem qui molestiae est consectetur tenetur quis dignissimos delectus nihil. Reiciendis quaerat minus hic dolore cupiditate omnis unde provident. Nihil iure animi ab quam. Quisquam a ipsum vero officiis doloribus. Quod.
+                </p>
+        
+                <div class="admission-cards">
+                    <div class="row g-4">
+                        <!-- Programs Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="admission-card h-100">
+                                <div class="card-icon bg-primary-soft">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Available Programs</h3>
+                                <ul class="program-list">
+                                    <li>Computer Science & Engineering</li>
+                                    <li>Business Administration</li>
+                                    <li>Electrical Engineering</li>
+                                    <li>Architecture</li>
+                                    <li>Law</li>
+                                </ul>
+                                <a class="btn btn-outline-primary" href="all-departments.html">
+                                    View All Programs
+                                </a>
+                            </div>
+                        </div>
+        
+                        <!-- Requirements Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="admission-card h-100">
+                                <div class="card-icon bg-success-soft">
+                                    <i class="fas fa-list-check"></i>
+                                </div>
+                                <h3>Admission Requirements</h3>
+                                <ul class="requirements-list">
+                                    <li>Minimum GPA 3.0 in SSC & HSC</li>
+                                    <li>Valid SAT/ACT Scores</li>
+                                    <li>English Proficiency Test</li>
+                                    <li>Statement of Purpose</li>
+                                </ul>
+                                <!-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#requirementsModal">
+                                    Full Requirements
+                                </button> -->
+                            </div>
+                        </div>
+        
+                        <!-- Tuition Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="admission-card h-100">
+                                <div class="card-icon bg-info-soft">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <h3>Tuition & Aid</h3>
+                                <div class="tuition-info">
+                                    <div class="fee-item">
+                                        <span>Application Fee:</span>
+                                        <strong>$75</strong>
+                                    </div>
+                                    <div class="fee-item">
+                                        <span>Per Credit Hour:</span>
+                                        <strong>$350</strong>
+                                    </div>
+                                    <div class="scholarship-note">
+                                        Merit scholarships up to 100%
+                                    </div>
+                                </div>
+                                <!-- <button class="btn btn-outline-info">Financial Details</button> -->
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Apply Now Section -->
+                    <div class="apply-now-section text-center mt-5">
+                        <div class="apply-card">
+                            <h2>Ready to Begin Your Journey?</h2>
+                            <p>Join our community of future leaders and innovators</p>
+                            <a href="application-apply.html" class="btn btn-primary btn-lg apply-now-btn">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </a>
+                            <div class="help-text mt-3">
+                                Need help? Contact our admission counselors at
+                                <a href="tel:+880-9604-848-848">+880-9604-848-848</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add smooth scroll for Apply Now button
+        document.querySelector('.apply-now-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            window.location.href = href;
+        });
+        
+        // Add hover effect for cards
+        document.querySelectorAll('.admission-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        </script>
+</body>
+
+</html>

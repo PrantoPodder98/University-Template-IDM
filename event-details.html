@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen Content Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #307e4a;
+            --secondary-color: #215a34;
+        }
+
+        .event-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&h=400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+
+        .event-meta {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .meta-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .meta-content h5 {
+            margin: 0;
+            color: #333;
+        }
+
+        .meta-content p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        .event-details-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .event-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .register-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            font-size: 18px;
+        }
+
+        .register-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .schedule-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .schedule-item::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -9px;
+            top: 5px;
+        }
+
+        .speaker-card {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .speaker-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .gallery-image {
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">News and Events</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="event.html">Event</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#">Details</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <div class="event-header">
+            <div class="container">
+                <span class="badge bg-primary mb-3">Featured Event</span>
+                <h1 class="display-4 mb-3">Global Technology Summit 2024</h1>
+                <p class="lead">Join industry leaders and innovators for our flagship technology conference</p>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h5>Date & Time</h5>
+                                <p>July 15-17, 2024<br>9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h5>Location</h5>
+                                <p>Main Conference Center<br>Nextgen University</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h5>Registration Fee</h5>
+                                <p>Students: $99<br>Professionals: $299</p>
+                            </div>
+                        </div>
+                        <!-- Register Button -->
+                        <button class="register-btn w-100" data-bs-toggle="modal" data-bs-target="#registerModal">Register Now</button>
+
+                        <!-- Register Modal -->
+                        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="registerModalLabel">Event Registration</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="name" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="address" class="form-label">Address</label>
+                                                <input type="text" class="form-control" id="address" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="phone" class="form-label">Phone Number</label>
+                                                <input type="tel" class="form-control" id="phone" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="studentId" class="form-label">Student ID</label>
+                                                <input type="number" class="form-control" id="studentId" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-8">
+                    <div class="event-details-card">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&h=400" alt="Event Overview" class="event-image">
+                        <h3>Event Overview</h3>
+                        <p>The Global Technology Summit 2024 brings together world-renowned experts, industry leaders, and innovators for three days of intense learning, networking, and collaboration. This year's theme focuses on "AI and Sustainable Technology" with workshops, keynote speeches, and panel discussions.</p>
+                        
+                        <h4 class="mt-4">Key Highlights</h4>
+                        <ul>
+                            <li>40+ Expert Speakers</li>
+                            <li>Hands-on Workshops</li>
+                            <li>Networking Sessions</li>
+                            <li>Innovation Showcase</li>
+                            <li>Career Fair</li>
+                        </ul>
+                    </div>
+    
+                    <div class="event-details-card">
+                        <h3>Event Schedule</h3>
+                        <div class="schedule-item">
+                            <h5>Day 1 - July 15</h5>
+                            <p>09:00 AM - Opening Ceremony<br>
+                               10:00 AM - Keynote Speech<br>
+                               11:30 AM - Panel Discussion<br>
+                               02:00 PM - Workshop Sessions</p>
+                        </div>
+                        <div class="schedule-item">
+                            <h5>Day 2 - July 16</h5>
+                            <p>09:00 AM - Technical Sessions<br>
+                               11:00 AM - Innovation Showcase<br>
+                               02:00 PM - Networking Event<br>
+                               04:00 PM - Career Fair</p>
+                        </div>
+                        <div class="schedule-item">
+                            <h5>Day 3 - July 17</h5>
+                            <p>09:00 AM - Workshop Sessions<br>
+                               11:00 AM - Panel Discussion<br>
+                               02:00 PM - Closing Ceremony<br>
+                               04:00 PM - Networking Reception</p>
+                        </div>
+                    </div>
+    
+                    <div class="event-details-card">
+                        <h3>Featured Speakers</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="speaker-card">
+                                    <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=800&q=80" alt="Speaker 1" class="speaker-image">
+                                    <h5>Dr. Sarah Johnson</h5>
+                                    <p>AI Research Director<br>Tech Solutions Inc.</p>
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="speaker-card">
+                                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=150&h=150" alt="Speaker 2" class="speaker-image">
+                                    <h5>Prof. David Chen</h5>
+                                    <p>Head of Innovation<br>Global Tech Corp</p>
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="speaker-card">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150" alt="Speaker 3" class="speaker-image">
+                                    <h5>Emma Williams</h5>
+                                    <p>CEO<br>Future Technologies</p>
+                                    <div class="social-links">
+                                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="event-details-card">
+                        <h3>Event Gallery</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=400&h=300" alt="Gallery 1" class="gallery-image w-100">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=400&h=300" alt="Gallery 2" class="gallery-image w-100">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1484910292437-025e5d13ce87?auto=format&fit=crop&w=400&h=300" alt="Gallery 3" class="gallery-image w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen Content Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .history-page {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #307e4a;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .page-title {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background: #307e4a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .history-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .history-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-year {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #307e4a;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #307e4a;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            color: #266940;
+        }
+
+        .stat-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #307e4a;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">About</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="information.html">Information And History</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <section class="history-page">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">Our History & Legacy</h1>
+                    <p>Shaping the future through excellence in education since 1990</p>
+                </div>
+    
+                <!-- Timeline Section -->
+                <div class="timeline-section">
+                    <div class="timeline-header">
+                        <div class="timeline-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h2 class="timeline-title">Our Journey Through Time</h2>
+                    </div>
+    
+                    <div class="history-grid">
+                        <!-- Founding Years Card -->
+                        <div class="history-card">
+                            <div class="card-image">
+                                <img src="asset/img/slider/1.webp" alt="University founding">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-year">1990</span>
+                                <h3 class="card-title">The Founding Vision</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                <a href="founding-vision.html" class="read-more">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <!-- Growth Period Card -->
+                        <div class="history-card">
+                            <div class="card-image">
+                                <img src="asset/img/slider/2.webp" alt="Campus expansion">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-year">2000</span>
+                                <h3 class="card-title">Era of Expansion</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                <a href="#" class="read-more">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <!-- Modern Era Card -->
+                        <div class="history-card">
+                            <div class="card-image">
+                                <img src="asset/img/slider/3.webp" alt="Modern campus">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-year">2020</span>
+                                <h3 class="card-title">Digital Revolution</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                                <a href="#" class="read-more">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Stats Section -->
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50,000+</div>
+                            <div class="stat-label">Alumni Worldwide</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Academic Programs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Faculty Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

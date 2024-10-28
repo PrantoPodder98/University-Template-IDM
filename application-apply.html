@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextgen Content Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/breadcrumb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .step-content {
+            transition: all 0.3s ease;
+        }
+
+        .progress-step {
+            cursor: pointer;
+        }
+
+        .progress-step.completed {
+            background: #307e4a;
+            color: white;
+            border-color: #307e4a;
+        }
+
+        .application-page {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            min-height: 100vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .application-deadline {
+            background: #ffebee;
+            color: #c62828;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .step-progress::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e9ecef;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #666;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: #307e4a;
+            color: white;
+            border-color: #307e4a;
+        }
+
+        .progress-step.completed {
+            background: #307e4a;
+            color: white;
+            border-color: #307e4a;
+        }
+
+        .application-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #307e4a;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-item:last-child {
+            border-bottom: none;
+        }
+
+        .requirement-item:hover {
+            background: #f8f9fa;
+        }
+
+        .requirement-icon {
+            color: #307e4a;
+            font-size: 1.2rem;
+        }
+
+        .requirement-content h4 {
+            color: #1a1a1a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .requirement-content p {
+            color: #666;
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #307e4a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(48, 126, 74, 0.1);
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #307e4a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #266940;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #307e4a;
+            color: #307e4a;
+        }
+
+        .btn-outline:hover {
+            background: #307e4a;
+            color: white;
+        }
+
+        .fee-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .fee-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fee-card:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fee-amount {
+            font-size: 2rem;
+            color: #307e4a;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .help-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .help-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .fee-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .help-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
+            <h4>
+                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+            </h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>About Nextgen</h5>
+                                    <a class="dropdown-item" href="information.html">Information/History</a>
+                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
+                                    <a class="dropdown-item" href="#">International Advisory Board</a>
+                                    <a class="dropdown-item" href="#">Accreditation</a>
+                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
+                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Nextgen Trustees</h5>
+                                    <a class="dropdown-item" href="#">Trustee</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Executive Leaders</h5>
+                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
+                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
+                                    <a class="dropdown-item" href="#">Administration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Academics
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics</h5>
+                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
+                                    <a class="dropdown-item" href="#">Economics Map</a>
+                                    <a class="dropdown-item" href="#">Management</a>
+                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
+                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
+                                    <a class="dropdown-item" href="#">BBA Program</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Engineering and Physical Sciences</h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
+                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
+                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences</h5>
+                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
+                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History and Philosophy</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences</h5>
+                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
+                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Faculty
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>School of Business and Economics (SOBE)</h5>
+                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
+                                    <a class="dropdown-item" href="#">Economics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
+                                    <a class="dropdown-item" href="#">Architecture</a>
+                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
+                                        (CSE)</a>
+                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Mathematics</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
+                                    <a class="dropdown-item" href="#">Law</a>
+                                    <a class="dropdown-item" href="#">History</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>School of Health and Life Sciences (SHLS)</h5>
+                                    <a class="dropdown-item" href="#">Pharmacy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
+                            <li><a class="dropdown-item" href="#">Journals</a></li>
+                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Conference</a></li>
+                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
+                            <li><a class="dropdown-item" href="#">Innovation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Admission
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Application</h5>
+                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
+                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
+                                    <a class="dropdown-item" href="#">PG Admission</a>
+                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Financial Information</h5>
+                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
+                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
+                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
+                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Resources</h5>
+                                    <a class="dropdown-item" href="#">FAQ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <nav class="custom-breadcrumb" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Application</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="ug-admission.html">UG Admission</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="#">Apply</a>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="my-5">
+        <section class="application-page">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">Online Application</h1>
+                    <p class="page-subtitle">Start your journey with Nextgen University. Complete the application form
+                        below to begin your admission process.</p>
+                    <div class="application-deadline">
+                        <i class="fas fa-clock"></i>
+                        Application Deadline: October 15, 2024
+                    </div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Progress Steps -->
+                    <div class="step-progress">
+                        <div class="progress-step active" data-step="1">1</div>
+                        <div class="progress-step" data-step="2">2</div>
+                        <div class="progress-step" data-step="3">3</div>
+                        <div class="progress-step" data-step="4">4</div>
+                    </div>
+
+
+                    <!-- Requirements Card -->
+                    <div class="step-content" data-step="1">
+                        <div class="application-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-list-check"></i>
+                                </div>
+                                <h2>Application Requirements</h2>
+                            </div>
+                            <div class="card-body">
+                                <ul class="requirements-list">
+                                    <li class="requirement-item">
+                                        <i class="fas fa-check-circle requirement-icon"></i>
+                                        <div class="requirement-content">
+                                            <h4>Academic Transcripts</h4>
+                                            <p>Official transcripts from all previously attended institutions</p>
+                                        </div>
+                                    </li>
+                                    <li class="requirement-item">
+                                        <i class="fas fa-check-circle requirement-icon"></i>
+                                        <div class="requirement-content">
+                                            <h4>Standardized Test Scores</h4>
+                                            <p>SAT/ACT scores for undergraduate applications</p>
+                                        </div>
+                                    </li>
+                                    <li class="requirement-item">
+                                        <i class="fas fa-check-circle requirement-icon"></i>
+                                        <div class="requirement-content">
+                                            <h4>Letters of Recommendation</h4>
+                                            <p>Two letters of recommendation from academic references</p>
+                                        </div>
+                                    </li>
+                                    <li class="requirement-item">
+                                        <i class="fas fa-check-circle requirement-icon"></i>
+                                        <div class="requirement-content">
+                                            <h4>Personal Statement</h4>
+                                            <p>Essay describing your academic goals and interests</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary next-step" onclick="nextStep(1)">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application Form -->
+                    <div class="step-content" data-step="2" style="display: none;">
+                        <div class="application-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h2>Personal Information</h2>
+                            </div>
+                            <div class="card-body">
+                                <form id="personalInfoForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Program of Interest</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select a program</option>
+                                            <option>Computer Science</option>
+                                            <option>Business Administration</option>
+                                            <option>Engineering</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="button-group">
+                                    <button class="btn btn-outline prev-step" onclick="prevStep(2)">Back</button>
+                                    <button class="btn btn-primary next-step" onclick="nextStep(2)">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application Fees -->
+                    <div class="step-content" data-step="3" style="display: none;">
+                        <div class="application-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <h2>Application Fees</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="fee-cards">
+                                    <div class="fee-card">
+                                        <h3>Undergraduate</h3>
+                                        <div class="fee-amount">$75</div>
+                                        <p>For all undergraduate programs</p>
+                                    </div>
+                                    <div class="fee-card">
+                                        <h3>Graduate</h3>
+                                        <div class="fee-amount">$90</div>
+                                        <p>For all graduate programs</p>
+                                    </div>
+                                    <div class="fee-card">
+                                        <h3>International</h3>
+                                        <div class="fee-amount">$120</div>
+                                        <p>For international students</p>
+                                    </div>
+                                </div>
+                                <div class="button-group">
+                                    <button class="btn btn-outline prev-step" onclick="prevStep(3)">Back</button>
+                                    <button class="btn btn-primary next-step" onclick="nextStep(3)">Continue</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="step-content" data-step="4" style="display: none;">
+                        <!-- Final Step -->
+                        <div class="application-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h2>Review & Submit</h2>
+                            </div>
+                            <div class="card-body">
+                                <!-- Review content... -->
+                                <div class="button-group">
+                                    <button class="btn btn-outline prev-step" onclick="prevStep(4)">Back</button>
+                                    <button class="btn btn-primary" onclick="submitApplication()">Submit
+                                        Application</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">About Nextgen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Information/History</a></li>
+                        <li><a href="#">Mission and Vision</a></li>
+                        <li><a href="#">Accreditation</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
+                        <li><a href="#">Executive Leaders</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Academics</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">School of Business & Economics</a></li>
+                        <li><a href="#">School of Engineering</a></li>
+                        <li><a href="#">School of Humanities</a></li>
+                        <li><a href="#">School of Health & Life Sciences</a></li>
+                        <li><a href="#">Research & Innovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Admission Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Admission</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Apply Now</a></li>
+                        <li><a href="#">UG Admission</a></li>
+                        <li><a href="#">PG Admission</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Tuition and Fees</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+880-9604-848-848</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nextgen.ac.bd</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-google"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="quick-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Emergency</a>
+                </div>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentStep = 1;
+
+        function updateSteps(step) {
+            // Update progress steps
+            document.querySelectorAll('.progress-step').forEach(stepEl => {
+                const stepNum = parseInt(stepEl.dataset.step);
+                stepEl.classList.remove('active');
+                if (stepNum < step) {
+                    stepEl.classList.add('completed');
+                } else if (stepNum === step) {
+                    stepEl.classList.add('active');
+                } else {
+                    stepEl.classList.remove('completed');
+                }
+            });
+
+            // Show/hide step content
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.style.display = content.dataset.step == step ? 'block' : 'none';
+            });
+        }
+
+        function nextStep(currentStepNum) {
+            if (validateStep(currentStepNum)) {
+                currentStep = Math.min(currentStepNum + 1, 4);
+                updateSteps(currentStep);
+            }
+        }
+
+        function prevStep(currentStepNum) {
+            currentStep = Math.max(currentStepNum - 1, 1);
+            updateSteps(currentStep);
+        }
+
+        function validateStep(step) {
+            // Add validation logic for each step
+            switch (step) {
+                case 1:
+                    return true; // Just viewing requirements
+                case 2:
+                    return validatePersonalInfo();
+                case 3:
+                    return validatePaymentSelection();
+                default:
+                    return true;
+            }
+        }
+
+        function validatePersonalInfo() {
+            const form = document.getElementById('personalInfoForm');
+            return form.checkValidity();
+        }
+
+        function validatePaymentSelection() {
+            // Add payment validation logic
+            return true;
+        }
+
+        function submitApplication() {
+            if (validateStep(4)) {
+                // Add submission logic
+                alert('Application submitted successfully!');
+            }
+        }
+
+        // Allow clicking on progress steps directly if previous steps are completed
+        document.querySelectorAll('.progress-step').forEach(step => {
+            step.addEventListener('click', () => {
+                const stepNum = parseInt(step.dataset.step);
+                if (stepNum <= currentStep) {
+                    currentStep = stepNum;
+                    updateSteps(currentStep);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
