@@ -4,19 +4,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Website</title>
+    <title>Nextgen University</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="asset/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .content-card {
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .featured-card {
+            height: 400px;
+        }
+
+        .featured-card .card-img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .regular-card {
+            height: 300px;
+        }
+
+        .regular-card .card-img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 2px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.8rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn {
+            margin: 5px;
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #22B369;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #22B369;
+            box-shadow: 0 0 0 0.25rem rgba(13, 253, 161, 0.25);
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .action-btn:hover {
+            background-color: white;
+            color: #22B369;
+        }
+
+        @media (max-width: 768px) {
+
+            .featured-card,
+            .regular-card {
+                height: 250px;
+            }
+
+            .filter-section {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">UIU</a> -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
             <h4>
-                <a class="navbar-brand text-light" href="#">NEXTGEN</a>
+                <a class="navbar-brand text-light" href="index.html">NEXTGEN</a>
             </h4>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,161 +143,178 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <!-- About Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             About
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>About UIU</h5>
-                                    <a class="dropdown-item" href="#">Information/History</a>
-                                    <a class="dropdown-item" href="#">Mission and Vision</a>
-                                    <a class="dropdown-item" href="#">International Advisory Board</a>
-                                    <a class="dropdown-item" href="#">Accreditation</a>
-                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
-                                    <a class="dropdown-item" href="#">Facts About UIU</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>UIU Trustees</h5>
-                                    <a class="dropdown-item" href="#">Trustee</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Executive Leaders</h5>
-                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
-                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
-                                    <a class="dropdown-item" href="#">Administration</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            News & Events
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
-                            <li><a class="dropdown-item" href="#">Announcement</a></li>
-                            <li><a class="dropdown-item" href="#">News</a></li>
-                            <li><a class="dropdown-item" href="#">Media</a></li>
-                            <li><a class="dropdown-item" href="#">Upcoming Events</a></li>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a class="dropdown-item" href="information.html">Information/History</a></li> -->
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="information.html">Information/History</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="founding-vision.html">The Founding Vision</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Era of Expansion</a></li>
+                                    <li><a class="dropdown-item" href="#">Digital Revolution</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission and Vision</a></li>
+                            <li><a class="dropdown-item" href="#">International Advisory Board</a></li>
+                            <li><a class="dropdown-item" href="#">Accreditation</a></li>
+                            <li><a class="dropdown-item" href="#">Communication Policy</a></li>
+                            <li><a class="dropdown-item" href="#">Facts About Nextgen</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Executive Leaders</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a></li>
+                                    <li><a class="dropdown-item" href="#">Deans and Directors</a></li>
+                                    <li><a class="dropdown-item" href="#">Administration</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
+
+                    <!-- News & Events Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            News & Events
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
+                            <li><a class="dropdown-item" href="news.html">News</a></li>
+                            <li><a class="dropdown-item" href="#">Media</a></li>
+                            <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Academics Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Academics
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>School of Business and Economics</h5>
-                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
-                                    <a class="dropdown-item" href="#">Economics Map</a>
-                                    <a class="dropdown-item" href="#">Management</a>
-                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
-                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
-                                    <a class="dropdown-item" href="#">BBA Program</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Engineering and Physical Sciences</h5>
-                                    <a class="dropdown-item" href="#">Architecture</a>
-                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
-                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
-                                    <a class="dropdown-item" href="#">Computer Engineering</a>
-                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Humanities and Social Sciences</h5>
-                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
-                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
-                                    <a class="dropdown-item" href="#">Law</a>
-                                    <a class="dropdown-item" href="#">History and Philosophy</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Health and Life Sciences</h5>
-                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
-                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
-                                    <a class="dropdown-item" href="#">Public Health</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Business</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Accounting and Finance</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics</a></li>
+                                    <li><a class="dropdown-item" href="#">Management</a></li>
+                                    <li><a class="dropdown-item" href="#">Marketing</a></li>
+                                    <li><a class="dropdown-item" href="#">MBA Programs</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Engineering</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture</a></li>
+                                    <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
+                                    <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="cse-department.html">Computer
+                                            Engineering</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="program-details.html">BSc in Computer
+                                                    Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">MSc in Computer Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">PhD in Computer Engineering</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Humanities</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">English</a></li>
+                                    <li><a class="dropdown-item" href="#">Law</a></li>
+                                    <li><a class="dropdown-item" href="#">Political Science</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
+
+                    <!-- Faculty Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Faculty
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>School of Business and Economics (SOBE)</h5>
-                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
-                                    <a class="dropdown-item" href="#">Economics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Engineering and Physical Sciences (SEPS)</h5>
-                                    <a class="dropdown-item" href="#">Architecture</a>
-                                    <a class="dropdown-item" href="#">Computer Science and Engineering (CSE)</a>
-                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
-                                    <a class="dropdown-item" href="#">Civil Engineering</a>
-                                    <a class="dropdown-item" href="#">Mathematics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
-                                    <a class="dropdown-item" href="#">Law</a>
-                                    <a class="dropdown-item" href="#">History</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Health and Life Sciences (SHLS)</h5>
-                                    <a class="dropdown-item" href="#">Pharmacy</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Business Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">BBA Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Engineering Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture Faculty</a></li>
+                                    <li><a class="dropdown-item" href="cse-faculty.html">CSE Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">EEE Faculty</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
+
+                    <!-- Research Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Research
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
-                            <li><a class="dropdown-item" href="#">Research Overview</a></li>
-                            <li><a class="dropdown-item" href="#">Publication</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
+                            <li><a class="dropdown-item" href="publication.html">Publication</a></li>
                             <li><a class="dropdown-item" href="#">Journals</a></li>
-                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Research Groups</a></li>
                             <li><a class="dropdown-item" href="#">Conference</a></li>
-                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
                             <li><a class="dropdown-item" href="#">Innovation</a></li>
                         </ul>
                     </li>
+
+                    <!-- Admission Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Admission
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Application</h5>
-                                    <a class="dropdown-item" href="#">Apply Now</a>
-                                    <a class="dropdown-item" href="#">UG Admission</a>
-                                    <a class="dropdown-item" href="#">PG Admission</a>
-                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Financial Information</h5>
-                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
-                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
-                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
-                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Resources</h5>
-                                    <a class="dropdown-item" href="#">FAQ</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Financial Information</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">International Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">Tuition and Fees</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Application</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <!-- <li><a class="dropdown-item" href="ug-admission.html">UG Admission</a></li> -->
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="ug-admission.html">UG
+                                            Admission</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="all-departments.html">All Programs</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Admission Requiements</a></li>
+                                            <li><a class="dropdown-item" href="#">Tution & Aid</a></li>
+                                            <li><a class="dropdown-item" href="application-apply.html">Online
+                                                    Application</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">PG Admission</a></li>
+                                    <li><a class="dropdown-item" href="#">Freshman Enrollment</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -208,249 +344,281 @@
         </div>
     </section>
 
-    <section class="py-5">
-        <h2 class="section-title">Admissions</h2>
-        <h4 class="sub-title">
-            United International University offers a wide range of undergraduate and postgraduate programs designed to
-            help you achieve your academic and career goals.
-        </h4>
-        <div class="container mt-5">
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="admission-card">
-                        <img src="asset/img/admission/1.jpg" alt="Undergraduate" class="w-100">
-                        <div class="p-3">
-                            <h4>Undergraduate Programs</h4>
-                            <p>Discover our wide range of undergraduate programs designed for future leaders.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="admission-card">
-                        <img src="asset/img/admission/2.jpg" alt="Undergraduate" class="w-100">
-                        <div class="p-3">
-                            <h4>Undergraduate Programs</h4>
-                            <p>Discover our wide range of undergraduate programs designed for future leaders.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="admission-card">
-                        <img src="asset/img/admission/3.jpg" alt="Undergraduate" class="w-100">
-                        <div class="p-3">
-                            <h4>Undergraduate Programs</h4>
-                            <p>Discover our wide range of undergraduate programs designed for future leaders.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- More admission cards -->
-            </div>
-        </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning btn-show-more">Show More</button>
-        </div>
-    </section>
+    <hr>
 
-    <!-- Recognition Section -->
-    <section class="py-5 bg-light">
-        <h2 class="section-title">Recognition</h2>
-        <h4 class="sub-title">
-            United International University is recognized by various national and international organizations for its
-            academic excellence and commitment to quality education.
-        </h4>
-        <div class="container mt-4">
-            <div class="row g-4">
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/1.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">ACBSP</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/2.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">ACCA</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/3.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">IEB</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/4.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">AUR</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/5.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">IR</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/6.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">WUR</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/2.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">ACCA</h4>
-                </div>
-                <div class="col-md-3" data-aos="zoom-in">
-                    <div class="recognition-card">
-                        <img src="asset/img/recognization/3.jpg" alt="Award" class="w-100">
-                    </div>
-                    <h4 class="text-center">IEB</h4>
-                </div>
-                <!-- More recognition cards -->
-            </div>
+    <div class="container mt-4">
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" class="form-control form-control-lg" placeholder="Search content...">
         </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning btn-show-more">Show More</button>
-        </div>
-    </section>
 
-    <!-- Notices Section -->
-    <section class="py-5">
-        <h2 class="section-title">Notices</h2>
-        <h4 class="sub-title">
-            Stay updated with the latest notices and announcements from United International University.
-        </h4>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="notice-card p-3 mb-3" data-aos="fade-left">
-                        <div class="notice-date">October 5, 2024</div>
-                        <h5>Semester Registration Deadline</h5>
-                        <p>Last date for semester registration has been extended.</p>
-                    </div>
-                    <!-- More notice cards -->
-                </div>
-                <div class="col-lg-8 mx-auto">
-                    <div class="notice-card p-3 mb-3" data-aos="fade-left">
-                        <div class="notice-date">October 5, 2024</div>
-                        <h5>Semester Registration Deadline</h5>
-                        <p>Last date for semester registration has been extended.</p>
-                    </div>
-                    <!-- More notice cards -->
-                </div>
-                <div class="col-lg-8 mx-auto">
-                    <div class="notice-card p-3 mb-3" data-aos="fade-left">
-                        <div class="notice-date">October 5, 2024</div>
-                        <h5>Semester Registration Deadline</h5>
-                        <p>Last date for semester registration has been extended.</p>
-                    </div>
-                    <!-- More notice cards -->
-                </div>
-                <div class="col-lg-8 mx-auto">
-                    <div class="notice-card p-3 mb-3" data-aos="fade-left">
-                        <div class="notice-date">October 5, 2024</div>
-                        <h5>Semester Registration Deadline</h5>
-                        <p>Last date for semester registration has been extended.</p>
-                    </div>
-                    <!-- More notice cards -->
-                </div>  
-            </div>
+        <!-- Filter Section -->
+        <div class="d-flex justify-content-center filter-section mb-4">
+            <button class="btn btn-outline-success filter-btn active" data-filter="all">All</button>
+            <button class="btn btn-outline-success filter-btn" data-filter="academic">Academic</button>
+            <button class="btn btn-outline-success filter-btn" data-filter="research">Research</button>
+            <button class="btn btn-outline-success filter-btn" data-filter="admission">Admission</button>
+            <button class="btn btn-outline-success filter-btn" data-filter="campus">Campus Life</button>
+            <button class="btn btn-outline-success filter-btn" data-filter="events">Events</button>
         </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning btn-show-more">Show More</button>
-        </div>
-    </section>
 
-    <!-- Events Section -->
-    <section class="py-5 bg-light">
-        <h2 class="section-title">Upcoming Events</h2>
-        <h4 class="sub-title">
-            Explore the upcoming events and activities at United International University.
-        </h4>
-        <div class="container  mt-4">
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="flip-left">
-                    <div class="event-card">
-                        <img src="asset/img/events/1.jpg" alt="Event" class="w-100">
-                        <div class="event-overlay">
-                            <h4>Annual Tech Symposium</h4>
-                            <div>October 15, 2024</div>
+        <!-- Featured Content -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card content-card featured-card" data-category="academic">
+                    <img src="asset/img/card/1.jpg" class="card-img" alt="Featured Academic Programs">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Featured</span>
+                            <span class="tag">Academic</span>
                         </div>
+                        <h5 class="card-title">World-Class Academic Programs</h5>
+                        <p class="card-text">Discover our comprehensive range of undergraduate and graduate programs
+                            designed to shape future leaders.</p>
+                        <button class="btn action-btn">Explore Programs</button>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="flip-left">
-                    <div class="event-card">
-                        <img src="asset/img/events/2.jpg" alt="Event" class="w-100">
-                        <div class="event-overlay">
-                            <h4>Annual Tech Symposium</h4>
-                            <div>October 15, 2024</div>
+            </div>
+            <div class="col-md-4">
+                <div class="card content-card featured-card" data-category="research">
+                    <img src="asset/img/card/2.jpg" class="card-img" alt="Research Initiatives">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Research</span>
+                            <span class="tag">Innovation</span>
                         </div>
+                        <h5 class="card-title">Research Excellence</h5>
+                        <p class="card-text">Leading breakthrough research in multiple disciplines.</p>
+                        <button class="btn action-btn">Learn More</button>
                     </div>
                 </div>
-                <!-- More event cards -->
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning btn-show-more">Show More</button>
-        </div>
-    </section>
 
-    <!-- News Section -->
-    <section class="py-5">
-        <h2 class="section-title">Latest News</h2>
-        <h4 class="sub-title">Discover the Latest: Dive into UIU's Current News,<br> Featuring Exciting Developments,
-            Achievements, and Stories.</h4>
-        <div class="container mt-4">
-            <div class="row g-4">
-                <div class="col-12" data-aos="fade-right">
-                    <div class="news-card">
-                        <img src="asset/img/news/1.jpg" alt="News" class="news-img">
-                        <div class="news-content">
-                            <h4>University Ranks Top in Research</h4>
-                            <p>Our university has been recognized for outstanding research contributions...</p>
+        <!-- Regular Content Grid -->
+        <div class="row">
+            <!-- Admission Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="admission">
+                    <img src="asset/img/card/7.jpg" class="card-img" alt="Admission">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Admission</span>
+                            <span class="tag">2024</span>
                         </div>
+                        <h5 class="card-title">Start Your Journey</h5>
+                        <p class="card-text">Join our vibrant academic community. Fall 2024 admissions now open.</p>
+                        <button class="btn action-btn">Apply Now</button>
                     </div>
                 </div>
-                <div class="col-12" data-aos="fade-right">
-                    <div class="news-card">
-                        <img src="asset/img/news/2.jpg" alt="News" class="news-img">
-                        <div class="news-content">
-                            <h4>University Ranks Top in Research</h4>
-                            <p>Our university has been recognized for outstanding research contributions...</p>
+            </div>
+
+            <!-- Campus Life Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="campus">
+                    <img src="asset/img/card/4.jpg" class="card-img" alt="Campus Life">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Campus</span>
+                            <span class="tag">Student Life</span>
                         </div>
+                        <h5 class="card-title">Campus Experience</h5>
+                        <p class="card-text">Experience a vibrant campus life with numerous clubs and activities.</p>
+                        <button class="btn action-btn">Discover More</button>
                     </div>
                 </div>
-                <div class="col-12" data-aos="fade-right">
-                    <div class="news-card">
-                        <img src="asset/img/news/3.jpg" alt="News" class="news-img">
-                        <div class="news-content">
-                            <h4>University Ranks Top in Research</h4>
-                            <p>Our university has been recognized for outstanding research contributions...</p>
+            </div>
+
+            <!-- Events Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="events">
+                    <img src="asset/img/card/6.jpg" class="card-img" alt="Events">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Events</span>
+                            <span class="tag">Workshop</span>
                         </div>
+                        <h5 class="card-title">Upcoming Events</h5>
+                        <p class="card-text">Join our workshops, seminars, and cultural events.</p>
+                        <button class="btn action-btn">View Calendar</button>
                     </div>
                 </div>
-                <!-- More news cards -->
+            </div>
+
+            <!-- Research Labs Card -->
+            <div class="col-md-6">
+                <div class="card content-card regular-card" data-category="research">
+                    <img src="asset/img/card/4.jpg" class="card-img" alt="Research Labs">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Research</span>
+                            <span class="tag">Labs</span>
+                        </div>
+                        <h5 class="card-title">State-of-the-art Research Labs</h5>
+                        <p class="card-text">Access cutting-edge research facilities and equipment.</p>
+                        <button class="btn action-btn">Explore Labs</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Programs Card -->
+            <div class="col-md-6">
+                <div class="card content-card regular-card" data-category="academic">
+                    <img src="asset/img/card/3.jpg" class="card-img" alt="International Programs">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">International</span>
+                            <span class="tag">Exchange</span>
+                        </div>
+                        <h5 class="card-title">Global Opportunities</h5>
+                        <p class="card-text">Explore our international exchange programs and partnerships.</p>
+                        <button class="btn action-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add these new cards to your existing "Regular Content Grid" section -->
+
+            <!-- Student Success Stories Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="academic">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80" class="card-img"
+                        alt="Student Success">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Success Stories</span>
+                            <span class="tag">Alumni</span>
+                        </div>
+                        <h5 class="card-title">Student Success Stories</h5>
+                        <p class="card-text">Meet our alumni who are making waves in their respective fields globally.
+                        </p>
+                        <button class="btn action-btn">Read Stories</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Innovation Hub Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="research">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80" class="card-img"
+                        alt="Innovation Hub">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Technology</span>
+                        </div>
+                        <h5 class="card-title">Innovation Hub</h5>
+                        <p class="card-text">Explore our startup incubator and innovation centers driving technological
+                            advancement.</p>
+                        <button class="btn action-btn">Discover Projects</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports & Athletics Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="campus">
+                    <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800&q=80" class="card-img"
+                        alt="Sports">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Sports</span>
+                            <span class="tag">Athletics</span>
+                        </div>
+                        <h5 class="card-title">Sports Excellence</h5>
+                        <p class="card-text">Join our championship-winning teams and state-of-the-art athletic
+                            facilities.</p>
+                        <button class="btn action-btn">Explore Athletics</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Services Card -->
+            <div class="col-md-6">
+                <div class="card content-card regular-card" data-category="academic">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80" class="card-img"
+                        alt="Career Services">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Careers</span>
+                            <span class="tag">Employment</span>
+                        </div>
+                        <h5 class="card-title">Career Development</h5>
+                        <p class="card-text">98% employment rate within 6 months of graduation. Access personalized
+                            career counseling and global job opportunities.</p>
+                        <button class="btn action-btn">Career Portal</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Engagement Card -->
+            <div class="col-md-6">
+                <div class="card content-card regular-card" data-category="events">
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&q=80" class="card-img"
+                        alt="Community">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Community</span>
+                            <span class="tag">Social Impact</span>
+                        </div>
+                        <h5 class="card-title">Community Impact</h5>
+                        <p class="card-text">Join our community service initiatives and make a difference in society
+                            through various outreach programs.</p>
+                        <button class="btn action-btn">Get Involved</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Tour Card -->
+            <div class="col-md-8">
+                <div class="card content-card regular-card" data-category="campus">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80" class="card-img"
+                        alt="Virtual Tour">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Campus Tour</span>
+                            <span class="tag">Virtual Experience</span>
+                        </div>
+                        <h5 class="card-title">Experience Nextgen Virtually</h5>
+                        <p class="card-text">Take a 360° virtual tour of our modern campus facilities, laboratories, and
+                            student spaces.</p>
+                        <button class="btn action-btn">Start Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Aid Card -->
+            <div class="col-md-4">
+                <div class="card content-card regular-card" data-category="admission">
+                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&q=80" class="card-img"
+                        alt="Financial Aid">
+                    <div class="card-img-overlay">
+                        <div class="tags mb-2">
+                            <span class="tag">Financial Aid</span>
+                            <span class="tag">Scholarships</span>
+                        </div>
+                        <h5 class="card-title">Financial Support</h5>
+                        <p class="card-text">Over $50M in scholarships and financial aid awarded annually. Find your
+                            funding options.</p>
+                        <button class="btn action-btn">Aid Calculator</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-warning btn-show-more">Show More</button>
-        </div>
-    </section>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <!-- About Section -->
                 <div class="col-lg-3 col-md-6 footer-section">
-                    <h3 class="footer-heading">About UIU</h3>
+                    <h3 class="footer-heading">About Nextgen</h3>
                     <ul class="footer-links">
                         <li><a href="#">Information/History</a></li>
                         <li><a href="#">Mission and Vision</a></li>
                         <li><a href="#">Accreditation</a></li>
-                        <li><a href="#">Facts About UIU</a></li>
-                        <li><a href="#">UIU Trustees</a></li>
+                        <li><a href="#">Facts About Nextgen</a></li>
+                        <li><a href="#">Nextgen Trustees</a></li>
                         <li><a href="#">Executive Leaders</a></li>
                     </ul>
                 </div>
@@ -485,7 +653,7 @@
                     <h3 class="footer-heading">Contact Us</h3>
                     <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>United International University<br>United City, Madani Avenue<br>Dhaka 1212, Bangladesh</span>
+                        <span>Nextgen University<br>Bashundhara City<br>Dhaka 1213, Bangladesh</span>
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-phone"></i>
@@ -493,7 +661,7 @@
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
-                        <span>info@uiu.ac.bd</span>
+                        <span>info@nextgen.ac.bd</span>
                     </div>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-google"></i></a>
@@ -512,14 +680,51 @@
                     <a href="#">Sitemap</a>
                     <a href="#">Emergency</a>
                 </div>
-                <p>&copy; 2024 United International University. All Rights Reserved.</p>
+                <p>&copy; 2024 Nextgen University. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/style.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter Functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const contentCards = document.querySelectorAll('.content-card');
 
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+                    contentCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Search Functionality
+            const searchBox = document.querySelector('.search-box input');
+
+            searchBox.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+
+                contentCards.forEach(card => {
+                    const cardContent = card.textContent.toLowerCase();
+                    if (cardContent.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="asset/js/navbar.js"></script>
+</body>
 </html>

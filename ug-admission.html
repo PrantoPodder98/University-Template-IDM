@@ -14,13 +14,13 @@
         .ug-admission-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+
         .admission-header .badge {
             font-size: 1rem;
             padding: 0.5rem 1rem;
             border-radius: 30px;
         }
-        
+
         .deadline-banner {
             display: inline-flex;
             align-items: center;
@@ -31,22 +31,22 @@
             border-radius: 30px;
             margin-top: 1rem;
         }
-        
+
         .admission-card {
             background: white;
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        
+
         .admission-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
-        
+
         .card-icon {
             width: 60px;
             height: 60px;
@@ -57,47 +57,61 @@
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
-        .bg-primary-soft { background: rgba(13, 110, 253, 0.1); color: #0d6efd; }
-        .bg-success-soft { background: rgba(25, 135, 84, 0.1); color: #198754; }
-        .bg-info-soft { background: rgba(13, 202, 240, 0.1); color: #0dcaf0; }
-        
+
+        .bg-primary-soft {
+            background: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+
+        .bg-success-soft {
+            background: rgba(25, 135, 84, 0.1);
+            color: #198754;
+        }
+
+        .bg-info-soft {
+            background: rgba(13, 202, 240, 0.1);
+            color: #0dcaf0;
+        }
+
         .admission-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             color: #1a1a1a;
         }
-        
-        .program-list, .requirements-list {
+
+        .program-list,
+        .requirements-list {
             list-style: none;
             padding: 0;
             margin: 0 0 1.5rem;
         }
-        
-        .program-list li, .requirements-list li {
+
+        .program-list li,
+        .requirements-list li {
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
         }
-        
-        .program-list li:before, .requirements-list li:before {
+
+        .program-list li:before,
+        .requirements-list li:before {
             content: '✓';
             position: absolute;
             left: 0;
             color: #198754;
         }
-        
+
         .tuition-info {
             margin-bottom: 1.5rem;
         }
-        
+
         .fee-item {
             display: flex;
             justify-content: space-between;
             padding: 0.5rem 0;
             border-bottom: 1px dashed #dee2e6;
         }
-        
+
         .scholarship-note {
             margin-top: 1rem;
             padding: 0.5rem;
@@ -107,7 +121,7 @@
             text-align: center;
             font-weight: 500;
         }
-        
+
         .apply-card {
             background: #307e4a;
             color: white;
@@ -115,7 +129,7 @@
             border-radius: 30px;
             margin-top: 2rem;
         }
-        
+
         .apply-now-btn {
             background: white;
             color: #307e4a;
@@ -126,43 +140,42 @@
             transition: all 0.3s ease;
             margin: 1.5rem 0;
         }
-        
+
         .apply-now-btn:hover {
             background: #f8f9fa;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .help-text {
             font-size: 0.9rem;
             opacity: 0.9;
         }
-        
+
         .help-text a {
             color: white;
             text-decoration: underline;
         }
-        
+
         @media (max-width: 768px) {
             .admission-card {
                 margin-bottom: 1.5rem;
             }
-            
+
             .apply-card {
                 padding: 2rem;
             }
         }
-        </style>
-        
+    </style>
+
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #307e4a">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <!-- <a class="navbar-brand" href="#">Nextgen</a> -->
             <h4>
-                <a class="navbar-brand text-light" href="index2.html">NEXTGEN</a>
+                <a class="navbar-brand text-light" href="index.html">NEXTGEN</a>
             </h4>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -170,162 +183,178 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <!-- About Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             About
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="aboutDropdown">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>About Nextgen</h5>
-                                    <a class="dropdown-item" href="information.html">Information/History</a>
-                                    <a class="dropdown-item" href="mission-vision.html">Mission and Vision</a>
-                                    <a class="dropdown-item" href="#">International Advisory Board</a>
-                                    <a class="dropdown-item" href="#">Accreditation</a>
-                                    <a class="dropdown-item" href="#">University Communication Policy and Guideline</a>
-                                    <a class="dropdown-item" href="#">Facts About Nextgen</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Nextgen Trustees</h5>
-                                    <a class="dropdown-item" href="#">Trustee</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Executive Leaders</h5>
-                                    <a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a>
-                                    <a class="dropdown-item" href="#">Deans, Chairs and Directors</a>
-                                    <a class="dropdown-item" href="#">Administration</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a class="dropdown-item" href="information.html">Information/History</a></li> -->
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="information.html">Information/History</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="founding-vision.html">The Founding Vision</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Era of Expansion</a></li>
+                                    <li><a class="dropdown-item" href="#">Digital Revolution</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="mission-vision.html">Mission and Vision</a></li>
+                            <li><a class="dropdown-item" href="#">International Advisory Board</a></li>
+                            <li><a class="dropdown-item" href="#">Accreditation</a></li>
+                            <li><a class="dropdown-item" href="#">Communication Policy</a></li>
+                            <li><a class="dropdown-item" href="#">Facts About Nextgen</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Executive Leaders</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">VC, Pro-VC & Treasurer</a></li>
+                                    <li><a class="dropdown-item" href="#">Deans and Directors</a></li>
+                                    <li><a class="dropdown-item" href="#">Administration</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
+
+                    <!-- News & Events Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="newsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             News & Events
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="announcement.html">Announcement</a></li>
                             <li><a class="dropdown-item" href="news.html">News</a></li>
                             <li><a class="dropdown-item" href="#">Media</a></li>
                             <li><a class="dropdown-item" href="event.html">Upcoming Events</a></li>
                         </ul>
                     </li>
+
+                    <!-- Academics Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Academics
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="academicsDropdown">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>School of Business and Economics</h5>
-                                    <a class="dropdown-item" href="#">Accounting and Finance</a>
-                                    <a class="dropdown-item" href="#">Economics Map</a>
-                                    <a class="dropdown-item" href="#">Management</a>
-                                    <a class="dropdown-item" href="#">Marketing and International Business</a>
-                                    <a class="dropdown-item" href="#">MBA and EMBA Programs</a>
-                                    <a class="dropdown-item" href="#">BBA Program</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Engineering and Physical Sciences</h5>
-                                    <a class="dropdown-item" href="#">Architecture</a>
-                                    <a class="dropdown-item" href="#">Civil and Environmental Engineering</a>
-                                    <a class="dropdown-item" href="#">Electrical Engineering</a>
-                                    <a class="dropdown-item" href="cse-department.html">Computer Engineering</a>
-                                    <a class="dropdown-item" href="#">Mathematics and Physics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Humanities and Social Sciences</h5>
-                                    <a class="dropdown-item" href="#">English and Modern Languages</a>
-                                    <a class="dropdown-item" href="#">Political Science and Sociology</a>
-                                    <a class="dropdown-item" href="#">Law</a>
-                                    <a class="dropdown-item" href="#">History and Philosophy</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Health and Life Sciences</h5>
-                                    <a class="dropdown-item" href="#">Biochemistry and Microbiology</a>
-                                    <a class="dropdown-item" href="#">Environmental Science and Management</a>
-                                    <a class="dropdown-item" href="#">Public Health</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Business</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Accounting and Finance</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics</a></li>
+                                    <li><a class="dropdown-item" href="#">Management</a></li>
+                                    <li><a class="dropdown-item" href="#">Marketing</a></li>
+                                    <li><a class="dropdown-item" href="#">MBA Programs</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Engineering</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture</a></li>
+                                    <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
+                                    <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="cse-department.html">Computer
+                                            Engineering</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="program-details.html">BSc in Computer
+                                                    Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">MSc in Computer Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">PhD in Computer Engineering</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">School of Humanities</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">English</a></li>
+                                    <li><a class="dropdown-item" href="#">Law</a></li>
+                                    <li><a class="dropdown-item" href="#">Political Science</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
+
+                    <!-- Faculty Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="facultyDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Faculty
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="facultyDropdown">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>School of Business and Economics (SOBE)</h5>
-                                    <a class="dropdown-item" href="#">Bachelor of Business Administration (BBA)</a>
-                                    <a class="dropdown-item" href="#">Economics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5><a href="faculty-list.html" class="no-underline">School of Engineering and Physical Sciences (SEPS)</a></h5>
-                                    <a class="dropdown-item" href="#">Architecture</a>
-                                    <a class="dropdown-item" href="cse-faculty.html">Computer Science and Engineering
-                                        (CSE)</a>
-                                    <a class="dropdown-item" href="#">Electrical and Electronic Engineering (EEE)</a>
-                                    <a class="dropdown-item" href="#">Civil Engineering</a>
-                                    <a class="dropdown-item" href="#">Mathematics</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Humanities and Social Sciences (SOHS and SS)</h5>
-                                    <a class="dropdown-item" href="#">Law</a>
-                                    <a class="dropdown-item" href="#">History</a>
-                                </div>
-                                <div class="col-md-3">
-                                    <h5>School of Health and Life Sciences (SHLS)</h5>
-                                    <a class="dropdown-item" href="#">Pharmacy</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Business Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">BBA Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">Economics Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Engineering Faculty</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Architecture Faculty</a></li>
+                                    <li><a class="dropdown-item" href="cse-faculty.html">CSE Faculty</a></li>
+                                    <li><a class="dropdown-item" href="#">EEE Faculty</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
+
+                    <!-- Research Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Research
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="research-overview.html">Research Overview</a></li>
                             <li><a class="dropdown-item" href="publication.html">Publication</a></li>
                             <li><a class="dropdown-item" href="#">Journals</a></li>
-                            <li><a class="dropdown-item" href="#">Research Group</a></li>
+                            <li><a class="dropdown-item" href="#">Research Groups</a></li>
                             <li><a class="dropdown-item" href="#">Conference</a></li>
-                            <li><a class="dropdown-item" href="#">Collaborating Institute</a></li>
                             <li><a class="dropdown-item" href="#">Innovation</a></li>
                         </ul>
                     </li>
+
+                    <!-- Admission Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="admissionDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Admission
                         </a>
-                        <div class="dropdown-menu mega-menu" aria-labelledby="admissionDropdown">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Application</h5>
-                                    <!-- <a class="dropdown-item" href="application-apply.html">Apply Now</a> -->
-                                    <a class="dropdown-item" href="ug-admission.html">UG Admission</a>
-                                    <a class="dropdown-item" href="#">PG Admission</a>
-                                    <a class="dropdown-item" href="#">Freshman Enrollment</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Financial Information</h5>
-                                    <a class="dropdown-item" href="#">Scholarship or Financial Aid</a>
-                                    <a class="dropdown-item" href="#">International Scholarship Offers</a>
-                                    <a class="dropdown-item" href="#">Waiver for PG Program</a>
-                                    <a class="dropdown-item" href="#">Tuition and Fees</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Resources</h5>
-                                    <a class="dropdown-item" href="#">FAQ</a>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Financial Information</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">International Scholarships</a></li>
+                                    <li><a class="dropdown-item" href="#">Tuition and Fees</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Application</a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <!-- <li><a class="dropdown-item" href="ug-admission.html">UG Admission</a></li> -->
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="ug-admission.html">UG
+                                            Admission</a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="all-departments.html">All Programs</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Admission Requiements</a></li>
+                                            <li><a class="dropdown-item" href="#">Tution & Aid</a></li>
+                                            <li><a class="dropdown-item" href="application-apply.html">Online
+                                                    Application</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">PG Admission</a></li>
+                                    <li><a class="dropdown-item" href="#">Freshman Enrollment</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -338,7 +367,7 @@
         <div class="container">
             <ol class="breadcrumb-list">
                 <li class="breadcrumb-item">
-                    <a href="index2.html"><i class="fas fa-home"></i></a>
+                    <a href="index.html"><i class="fas fa-home"></i></a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="#">Application</a>
@@ -363,9 +392,100 @@
                     </div>
                 </div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nihil repudiandae eveniet eum maiores sit aliquam nulla quas excepturi voluptates consequatur nam cumque similique dolore temporibus rerum deleniti aperiam eius, dignissimos veritatis debitis. Doloribus optio voluptatem beatae voluptates aut! Et, reprehenderit, laborum fugit cumque explicabo provident nobis numquam, ratione veritatis debitis illo quam laboriosam harum labore. Vel pariatur adipisci animi non consequatur ad, reiciendis quibusdam a recusandae autem architecto incidunt facere earum deleniti laborum atque ipsum id sequi maiores voluptate iste ipsam. Delectus exercitationem eum asperiores est beatae possimus non aperiam itaque minus odio nihil voluptatum animi maxime, nobis facere sint earum doloremque! In, repellat. Sed dolore reprehenderit ipsam odio, sunt earum assumenda alias, asperiores quaerat deleniti sit laboriosam, vel vero laudantium ipsa fugiat esse aliquid! Tempora id minus quisquam quas corrupti eaque, voluptatibus tempore molestiae fugit recusandae reiciendis laborum ea nemo porro earum possimus quod commodi nihil magnam reprehenderit. Veniam voluptate deserunt aperiam delectus sint aliquid repellat eveniet illo corrupti, nam voluptatem accusamus distinctio, animi molestias ducimus eos iure ratione dicta! Error rem delectus vitae expedita dolorum ullam amet veritatis, libero ratione placeat, cupiditate incidunt nisi illum fugiat neque! Modi dicta doloremque voluptates exercitationem vitae tenetur at quibusdam id adipisci. Omnis nihil magnam sunt similique saepe sit atque eos, delectus blanditiis, qui tenetur nostrum ut vero, cupiditate eaque? Soluta molestias ut, nemo facere magni earum culpa at similique optio sapiente eos, enim, cum quis ipsum quasi maiores voluptates mollitia? Eius tempora quod voluptatem deleniti alias nihil in debitis voluptates repellat repudiandae quis hic, doloribus officiis fugiat soluta esse totam est, commodi excepturi aut ratione. Tempora hic labore sunt deleniti reprehenderit nam rem pariatur error quod nisi amet, suscipit quia aliquid! Dolores vitae id asperiores nemo aliquid earum deserunt aliquam reprehenderit nihil quis consequuntur facilis, quod provident iste molestias accusantium laudantium excepturi totam et at inventore non. Illum nam hic culpa repudiandae officia et odit, modi doloribus amet temporibus porro recusandae minima in, suscipit repellat nulla doloremque. Ex odio qui laboriosam illum voluptatem nostrum velit perspiciatis voluptas repellat ab asperiores molestiae libero tempora commodi, deleniti illo, expedita labore ipsam vero. Sint aut hic dolores reiciendis, facilis porro optio voluptates recusandae debitis, nihil esse. Deserunt voluptate quae similique perspiciatis iure dolorum libero? Commodi ab culpa incidunt architecto magni, perferendis neque eaque officiis iure ipsa excepturi quis qui placeat temporibus iste animi amet distinctio maiores, recusandae itaque. Assumenda ipsum esse corrupti nesciunt eaque. Repellendus praesentium nobis incidunt nostrum deleniti id aperiam similique hic tempora natus eaque, sapiente, neque est, nemo modi aut facere accusantium officiis! Ex enim officiis sequi culpa blanditiis maxime, dolores accusantium harum corrupti. Hic voluptates quisquam aspernatur unde ad ullam doloribus sapiente labore iure fugit autem in voluptate quam obcaecati quidem reprehenderit nostrum assumenda temporibus quas quod facere, cupiditate atque dolore praesentium. Eum quos dolorem mollitia sit ab repellat tempore. At, doloremque doloribus! Suscipit eius reiciendis, ratione aliquid nesciunt obcaecati inventore ut laboriosam odio, animi dicta perferendis praesentium reprehenderit corporis non repudiandae velit sapiente consectetur est, rem perspiciatis ipsum tenetur cum eos. Adipisci quisquam libero facere, sequi itaque dicta cupiditate suscipit. Illum, praesentium perspiciatis nisi facilis aspernatur vero eius ipsam quas aperiam autem qui molestiae est consectetur tenetur quis dignissimos delectus nihil. Reiciendis quaerat minus hic dolore cupiditate omnis unde provident. Nihil iure animi ab quam. Quisquam a ipsum vero officiis doloribus. Quod.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nihil repudiandae eveniet
+                    eum maiores sit aliquam nulla quas excepturi voluptates consequatur nam cumque similique dolore
+                    temporibus rerum deleniti aperiam eius, dignissimos veritatis debitis. Doloribus optio voluptatem
+                    beatae voluptates aut! Et, reprehenderit, laborum fugit cumque explicabo provident nobis numquam,
+                    ratione veritatis debitis illo quam laboriosam harum labore. Vel pariatur adipisci animi non
+                    consequatur ad, reiciendis quibusdam a recusandae autem architecto incidunt facere earum deleniti
+                    laborum atque ipsum id sequi maiores voluptate iste ipsam. Delectus exercitationem eum asperiores
+                    est beatae possimus non aperiam itaque minus odio nihil voluptatum animi maxime, nobis facere sint
+                    earum doloremque! In, repellat. Sed dolore reprehenderit ipsam odio, sunt earum assumenda alias,
+                    asperiores quaerat deleniti sit laboriosam, vel vero laudantium ipsa fugiat esse aliquid! Tempora id
+                    minus quisquam quas corrupti eaque, voluptatibus tempore molestiae fugit recusandae reiciendis
+                    laborum ea nemo porro earum possimus quod commodi nihil magnam reprehenderit. Veniam voluptate
+                    deserunt aperiam delectus sint aliquid repellat eveniet illo corrupti, nam voluptatem accusamus
+                    distinctio, animi molestias ducimus eos iure ratione dicta! Error rem delectus vitae expedita
+                    dolorum ullam amet veritatis, libero ratione placeat, cupiditate incidunt nisi illum fugiat neque!
+                    Modi dicta doloremque voluptates exercitationem vitae tenetur at quibusdam id adipisci. Omnis nihil
+                    magnam sunt similique saepe sit atque eos, delectus blanditiis, qui tenetur nostrum ut vero,
+                    cupiditate eaque? Soluta molestias ut, nemo facere magni earum culpa at similique optio sapiente
+                    eos, enim, cum quis ipsum quasi maiores voluptates mollitia? Eius tempora quod voluptatem deleniti
+                    alias nihil in debitis voluptates repellat repudiandae quis hic, doloribus officiis fugiat soluta
+                    esse totam est, commodi excepturi aut ratione. Tempora hic labore sunt deleniti reprehenderit nam
+                    rem pariatur error quod nisi amet, suscipit quia aliquid! Dolores vitae id asperiores nemo aliquid
+                    earum deserunt aliquam reprehenderit nihil quis consequuntur facilis, quod provident iste molestias
+                    accusantium laudantium excepturi totam et at inventore non. Illum nam hic culpa repudiandae officia
+                    et odit, modi doloribus amet temporibus porro recusandae minima in, suscipit repellat nulla
+                    doloremque. Ex odio qui laboriosam illum voluptatem nostrum velit perspiciatis voluptas repellat ab
+                    asperiores molestiae libero tempora commodi, deleniti illo, expedita labore ipsam vero. Sint aut hic
+                    dolores reiciendis, facilis porro optio voluptates recusandae debitis, nihil esse. Deserunt
+                    voluptate quae similique perspiciatis iure dolorum libero? Commodi ab culpa incidunt architecto
+                    magni, perferendis neque eaque officiis iure ipsa excepturi quis qui placeat temporibus iste animi
+                    amet distinctio maiores, recusandae itaque. Assumenda ipsum esse corrupti nesciunt eaque.
+                    Repellendus praesentium nobis incidunt nostrum deleniti id aperiam similique hic tempora natus
+                    eaque, sapiente, neque est, nemo modi aut facere accusantium officiis! Ex enim officiis sequi culpa
+                    blanditiis maxime, dolores accusantium harum corrupti. Hic voluptates quisquam aspernatur unde ad
+                    ullam doloribus sapiente labore iure fugit autem in voluptate quam obcaecati quidem reprehenderit
+                    nostrum assumenda temporibus quas quod facere, cupiditate atque dolore praesentium. Eum quos dolorem
+                    mollitia sit ab repellat tempore. At, doloremque doloribus! Suscipit eius reiciendis, ratione
+                    aliquid nesciunt obcaecati inventore ut laboriosam odio, animi dicta perferendis praesentium
+                    reprehenderit corporis non repudiandae velit sapiente consectetur est, rem perspiciatis ipsum
+                    tenetur cum eos. Adipisci quisquam libero facere, sequi itaque dicta cupiditate suscipit. Illum,
+                    praesentium perspiciatis nisi facilis aspernatur vero eius ipsam quas aperiam autem qui molestiae
+                    est consectetur tenetur quis dignissimos delectus nihil. Reiciendis quaerat minus hic dolore
+                    cupiditate omnis unde provident. Nihil iure animi ab quam. Quisquam a ipsum vero officiis doloribus.
+                    Quod.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, culpa non dolore fuga nulla fugit
+                    suscipit facere neque ullam iure, sunt laborum aliquam expedita esse nesciunt ipsum veritatis ab
+                    libero repellat nam? Nisi, totam nostrum obcaecati dolorum, quos atque enim, ullam dolore veritatis
+                    dignissimos neque error itaque temporibus nulla! Asperiores ipsa adipisci quia temporibus dolorum
+                    incidunt qui iste explicabo inventore ut! Non, deserunt ipsa. Illum, neque sunt aperiam obcaecati
+                    libero voluptates molestiae ratione ipsum provident beatae nihil voluptatum est tenetur ex
+                    voluptate. Odio ducimus eligendi id magnam, quam perferendis quos vel qui, iusto soluta ratione
+                    cupiditate modi culpa ipsam iste repellendus dolore. Iste possimus similique reiciendis, ipsam iure
+                    in laudantium, libero id incidunt nobis praesentium iusto asperiores voluptatibus maiores est, nisi
+                    numquam. Vitae inventore nihil eius voluptates, esse sequi est sit ratione minus debitis. Debitis,
+                    possimus laboriosam illo praesentium dolorum vitae repudiandae reprehenderit inventore ipsum
+                    quisquam, quos molestias blanditiis voluptatibus similique molestiae, ea quo! Sint ducimus magni
+                    aspernatur eum consequuntur ipsum vel ipsam incidunt ab a. Laudantium accusantium corrupti suscipit
+                    maxime adipisci beatae voluptatum numquam modi, doloremque quisquam nulla voluptatem? Fuga esse aut,
+                    nobis illum laborum officiis qui facilis aperiam ea ex deleniti quam quis dolorem labore numquam
+                    vero amet dicta ullam praesentium recusandae unde veritatis? Ad modi omnis quibusdam doloremque
+                    distinctio consequuntur eveniet id culpa molestiae provident minus odit, qui obcaecati neque et
+                    magni veniam impedit enim recusandae voluptatem. Voluptatem ad earum aspernatur odio quasi minima ea
+                    explicabo autem tenetur nostrum esse, laudantium sit exercitationem adipisci. Doloribus
+                    reprehenderit, distinctio necessitatibus praesentium sapiente officiis aliquid quas est, rem sequi
+                    eius! Laudantium atque adipisci voluptatem, assumenda amet ducimus quos, maxime doloremque fuga
+                    mollitia numquam dolorum facere voluptate quae. Iste quae nostrum perferendis explicabo, fugiat qui
+                    optio cupiditate quasi modi animi eveniet veritatis. Incidunt sint commodi voluptate facilis in
+                    eaque possimus ipsum!
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias vero saepe, illum beatae,
+                    perspiciatis qui assumenda expedita eos tenetur voluptates odit atque nobis consequuntur eligendi
+                    voluptatem culpa doloremque quisquam esse natus modi iste, sunt aspernatur. Quos, beatae assumenda
+                    placeat, quae tenetur hic veniam, animi nihil nisi tempora numquam. Reiciendis assumenda amet
+                    cupiditate ipsam laboriosam error deserunt voluptatibus aperiam animi illo similique architecto
+                    ullam voluptas quibusdam perferendis repudiandae, at facere? Voluptatibus alias quia ratione!
+                    Facilis itaque commodi harum excepturi accusamus perspiciatis cum repudiandae iure obcaecati
+                    inventore deleniti dolor culpa atque doloremque minus corrupti vitae amet totam provident, fugiat
+                    est beatae ipsa veniam? Excepturi odit atque hic saepe, perferendis porro neque molestiae labore?
+                    Exercitationem, consequuntur impedit corporis facere eligendi vero adipisci amet dicta inventore
+                    necessitatibus qui cupiditate cum perferendis iusto neque dolore, natus hic animi illum mollitia.
+                    Dolorum deleniti repellendus nihil architecto accusamus rem odit quis sit tempora optio neque dicta,
+                    impedit quaerat maxime tenetur quibusdam et accusantium consectetur. In eum dicta nesciunt
+                    perferendis consectetur vitae aliquam dolor labore. Itaque pariatur sunt id cumque natus inventore
+                    animi cupiditate saepe laudantium ea at quaerat reprehenderit rerum, neque voluptatem culpa fuga
+                    iure quis a quod? Dolorem, eos consequuntur veniam facilis atque in iste deserunt, tempora tenetur
+                    libero minus nesciunt reiciendis aliquam, ex voluptate voluptatibus rerum nam sequi! Quod placeat ut
+                    explicabo praesentium, itaque numquam vitae ducimus sunt soluta. Eveniet accusantium reprehenderit
+                    culpa? Corporis, aliquid. Aliquid inventore optio rerum laboriosam nobis iusto labore accusantium,
+                    commodi rem obcaecati eius atque nesciunt quidem nam aperiam deleniti accusamus odio debitis
+                    consequuntur suscipit nihil beatae. Cumque ea incidunt corporis modi atque facere quos dignissimos
+                    reprehenderit tenetur, explicabo odio quaerat! Libero eaque culpa consequatur repudiandae neque
+                    velit. Adipisci, necessitatibus nesciunt commodi, at voluptates excepturi tenetur magni non autem
+                    aut modi.
                 </p>
-        
+
                 <div class="admission-cards">
                     <div class="row g-4">
                         <!-- Programs Card -->
@@ -387,7 +507,7 @@
                                 </a>
                             </div>
                         </div>
-        
+
                         <!-- Requirements Card -->
                         <div class="col-lg-4 col-md-6">
                             <div class="admission-card h-100">
@@ -406,7 +526,7 @@
                                 </button> -->
                             </div>
                         </div>
-        
+
                         <!-- Tuition Card -->
                         <div class="col-lg-4 col-md-6">
                             <div class="admission-card h-100">
@@ -431,7 +551,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Apply Now Section -->
                     <div class="apply-now-section text-center mt-5">
                         <div class="apply-card">
@@ -451,7 +571,7 @@
             </div>
         </section>
     </div>
-    
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -533,23 +653,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Add smooth scroll for Apply Now button
-        document.querySelector('.apply-now-btn').addEventListener('click', function(e) {
+        document.querySelector('.apply-now-btn').addEventListener('click', function (e) {
             e.preventDefault();
             const href = this.getAttribute('href');
             window.location.href = href;
         });
-        
+
         // Add hover effect for cards
         document.querySelectorAll('.admission-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-5px)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0)';
             });
         });
-        </script>
+    </script>
+    <script src="asset/js/navbar.js"></script>
 </body>
 
 </html>

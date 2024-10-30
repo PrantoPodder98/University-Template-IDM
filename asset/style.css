@@ -87,7 +87,10 @@
 .navbar-nav .dropdown-menu .dropdown-menu {
     top: 0;
     left: 100%;
+    right: auto; 
     margin-top: 0;
+    background-color: #ecfdec;
+    box-shadow:  0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Dropdown Items */
@@ -106,6 +109,7 @@
     color: #22B369;
 }
 
+
 /* Show dropdowns on hover for desktop */
 @media (min-width: 992px) {
     .navbar-nav .dropdown:hover > .dropdown-menu {
@@ -114,6 +118,12 @@
 
     .navbar-nav .dropdown-menu .dropdown:hover > .dropdown-menu {
         display: block;
+    }
+
+    /* Position second-level dropdown to the left if not enough space on the right */
+    .navbar-nav .dropdown-menu .dropdown:last-child > .dropdown-menu {
+        left: auto;
+        right: 100%;
     }
 }
 
@@ -129,6 +139,10 @@
 
     .navbar-nav .dropdown-menu .dropdown-menu {
         padding-left: 1.5rem;
+        position: static;
+        width: 100%;
+        background-color: #f8f9fa;
+        box-shadow: none;
     }
 
     .dropdown-item {
