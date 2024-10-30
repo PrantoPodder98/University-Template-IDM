@@ -1,45 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to handle nested dropdowns
-  function handleDropdowns() {
-    const dropdowns = document.querySelectorAll(".dropdown-menu .dropdown");
+  function handleNestedDropdowns() {
+      // Select all nested dropdown elements
+      const nestedDropdowns = document.querySelectorAll(".dropdown-menu .dropdown");
 
-    if (window.innerWidth < 992) {
-      // Mobile view
-      dropdowns.forEach((dropdown) => {
-        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
-        dropdownToggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const submenu = this.nextElementSibling;
-          const isExpanded = submenu.style.display === "block";
+      // Only apply nested dropdown behavior if screen width is less than 992px (mobile view)
+      if (window.innerWidth < 992) {
+          nestedDropdowns.forEach((dropdown) => {
+              const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
 
-          // Close all other open submenus
-          dropdowns.forEach((d) => {
-            if (d !== dropdown) {
-              d.querySelector(".dropdown-menu").style.display = "none";
-            }
+              // Check if the click event listener is already added to prevent duplication
+              if (!dropdownToggle.classList.contains("click-bound")) {
+                  dropdownToggle.classList.add("click-bound");
+
+                  // Add click event listener for toggling submenus
+                  dropdownToggle.addEventListener("click", function (e) {
+                      e.preventDefault(); // Prevent default link behavior
+                      e.stopPropagation(); // Stop event from bubbling up
+
+                      const submenu = this.nextElementSibling;
+
+                      // Toggle visibility for the selected submenu
+                      submenu.classList.toggle("show");
+
+                      // Hide other submenus within the same parent dropdown
+                      dropdown.parentElement.querySelectorAll(".dropdown-menu").forEach((otherSubmenu) => {
+                          if (otherSubmenu !== submenu) {
+                              otherSubmenu.classList.remove("show");
+                          }
+                      });
+                  });
+              }
           });
+      } else {
+          // In desktop view, remove the "show" class to reset dropdown state
+          nestedDropdowns.forEach((dropdown) => {
+              const submenu = dropdown.querySelector(".dropdown-menu");
+              submenu.classList.remove("show");
 
-          // Toggle current submenu
-          submenu.style.display = isExpanded ? "none" : "block";
-        });
-      });
-    } else {
-      // Desktop view
-      dropdowns.forEach((dropdown) => {
-        const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
-        dropdownToggle.removeEventListener("click", function () {});
-      });
-    }
+              // Remove "click-bound" class to reset for potential future mobile view
+              const dropdownToggle = dropdown.querySelector(".dropdown-toggle");
+              dropdownToggle.classList.remove("click-bound");
+          });
+      }
   }
 
-  // Initial call
-  handleDropdowns();
+  // Initial call to handleNestedDropdowns
+  handleNestedDropdowns();
 
-  // Call on window resize
+  // Re-apply nested dropdown handling on window resize
   let resizeTimer;
   window.addEventListener("resize", function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(handleDropdowns, 250);
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleNestedDropdowns, 250);
   });
 });
