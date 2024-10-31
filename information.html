@@ -45,7 +45,7 @@
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .timeline-header {
@@ -87,12 +87,12 @@
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .history-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .card-image {
@@ -164,12 +164,12 @@
             padding: 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .stat-number {
@@ -187,6 +187,67 @@
         @media (max-width: 768px) {
             .history-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add new sidebar styles */
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-title {
+            color: #307e4a;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: #666;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav a:hover {
+            background: #f8f9fa;
+            color: #307e4a;
+        }
+
+        .sidebar-nav a.active {
+            background: #307e4a;
+            color: white;
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                margin-bottom: 2rem;
+                position: static;
             }
         }
     </style>
@@ -418,91 +479,205 @@
     <div class="my-5">
         <section class="history-page">
             <div class="container">
-                <div class="page-header">
-                    <h1 class="page-title">Our History & Legacy</h1>
-                    <p>Shaping the future through excellence in education since 1990</p>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="sidebar">
+                            <h3 class="sidebar-title">Navigation</h3>
+                            <ul class="sidebar-nav">
+                                <li>
+                                    <a href="founding-vision.html">
+                                        <i class="fas fa-landmark"></i>
+                                        The Founding Vision
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-building"></i>
+                                        Era of Expansion
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-laptop"></i>
+                                        Digital Revolution
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="page-header">
+                            <h1 class="page-title">Our History & Legacy</h1>
+                            <p>Shaping the future through excellence in education since 1990</p>
+                        </div>
+        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut soluta sunt quod, iusto aliquam ipsam.
+                            Aspernatur eligendi odio ut nulla animi laborum facilis voluptatem iste esse, earum nesciunt quam
+                            delectus modi, corporis suscipit aliquid sit nobis molestiae dicta harum tenetur dignissimos. In,
+                            debitis iure? Qui distinctio corrupti vel sapiente numquam fugit illum aliquid maiores, veniam
+                            repellendus facilis rem dolorum ipsa quod laboriosam nisi et. Voluptates doloremque praesentium quae
+                            sit repellat, voluptas cupiditate deleniti soluta molestiae sint maiores, eos dolorem et! Reiciendis
+                            sit, incidunt quidem aut in omnis sequi amet deserunt blanditiis laborum ex eveniet aperiam. Quos
+                            architecto qui non sint atque aspernatur, deleniti nihil suscipit officia eum culpa, magni beatae
+                            saepe omnis. Dignissimos quasi debitis impedit ipsum blanditiis officiis nostrum eligendi provident
+                            quaerat corrupti, sequi praesentium aliquid fugit recusandae similique cumque fugiat repellendus
+                            accusamus magnam exercitationem officia ipsa a velit cupiditate. Minus reiciendis nihil, ad
+                            perferendis alias blanditiis? Quae voluptatum neque, provident odio, assumenda dolorum iste qui unde
+                            perferendis ab illum sunt, beatae sapiente error voluptatibus nam eligendi molestiae eius esse in
+                            rem nihil fugiat? In maxime fugiat nostrum explicabo magnam sed autem quidem temporibus vitae
+                            soluta, eligendi saepe voluptatum ducimus blanditiis officiis sapiente error dolore, ad rerum
+                            voluptates minus enim ratione nam? Esse autem voluptates tempora, impedit ab eos laudantium iste.
+                            Sed cupiditate reprehenderit fuga ut, repudiandae cumque eius sunt consectetur laborum rem!
+                            Consectetur rem id culpa quas ducimus error voluptates reprehenderit, consequatur, non ea
+                            perspiciatis quidem rerum hic sequi, dolore quia. Nulla aliquam assumenda dolores aperiam, voluptate
+                            laudantium laboriosam minus excepturi minima debitis quisquam mollitia delectus beatae perspiciatis
+                            repellendus ea quibusdam harum quos facere repudiandae facilis, aliquid odio accusamus obcaecati!
+                            Pariatur nobis molestiae asperiores error fuga est animi ratione eligendi atque. Maxime aperiam
+                            nostrum assumenda! Et, fugiat est deleniti, assumenda quidem, cupiditate accusamus quisquam odit
+                            sequi quas voluptate consequuntur unde dolore explicabo. Veniam temporibus, quisquam laboriosam non
+                            cumque a soluta earum. Nesciunt doloremque omnis alias corporis vel assumenda cum ratione quia quam,
+                            voluptatum optio quod illum sit obcaecati odit nulla exercitationem quos eligendi voluptatem ad
+                            dolores accusamus! Modi doloremque, facilis expedita quis excepturi provident omnis at rem
+                            voluptatum ipsam animi recusandae adipisci ut libero possimus necessitatibus est aliquid repudiandae
+                            ad corrupti? Totam atque sunt ipsum, quasi dolore perspiciatis laborum itaque ab libero impedit
+                            laboriosam nemo nisi velit at ullam repellendus incidunt corporis expedita eligendi. Corrupti
+                            ducimus, adipisci voluptatibus mollitia amet maxime illo sapiente vitae beatae minima eum hic, eos
+                            laborum nisi aut ab minus dolorum iste quos. Velit ipsum ullam necessitatibus, placeat dolor a porro
+                            vero sapiente iure veniam, aperiam ducimus, libero eaque dicta omnis perferendis cum enim. Adipisci
+                            nemo modi laboriosam nulla, officia rem possimus accusantium omnis accusamus voluptates sit tempore
+                            voluptatibus et excepturi id, in ut! Aspernatur ipsa atque voluptate ad consequuntur ullam itaque
+                            officiis odio quia nobis et ex, illum dicta cumque veniam reiciendis molestias earum, ea dolorum
+                            cum, saepe doloremque quis distinctio in? Error nam odit repudiandae harum voluptatum est hic
+                            sapiente reprehenderit, doloremque quia, eius nisi eligendi excepturi animi magni deleniti,
+                            doloribus sint nobis vel. Veniam consequatur voluptate praesentium architecto repudiandae! Laborum,
+                            fugit maiores! Eos explicabo labore saepe maxime culpa id consectetur repellat commodi laborum
+                            deserunt rerum placeat totam incidunt dignissimos necessitatibus nostrum eum fugit maiores tempora
+                            aliquid assumenda quas, natus harum. Animi, inventore natus cumque adipisci praesentium officiis
+                            assumenda nam aut cupiditate placeat, architecto reprehenderit repudiandae! Sit voluptatibus
+                            dignissimos sint enim, mollitia eligendi libero recusandae dolore aspernatur eius! Quidem, quo
+                            perferendis alias officia id consequatur consectetur sapiente molestiae aliquid cupiditate
+                            recusandae deserunt accusantium quaerat. Sit tempore expedita impedit harum vitae doloremque minus
+                            consequuntur deserunt. Quae recusandae vitae corrupti quaerat amet officia id cupiditate voluptatem!
+                            Illo doloremque voluptatibus incidunt architecto inventore nostrum, quidem modi rerum, ut quae quo
+                            est rem officia facere laborum minima expedita optio molestias aliquam error? Debitis quae culpa
+                            dolorem quam accusantium rem reprehenderit perspiciatis sed modi quisquam consequuntur, error
+                            nostrum incidunt voluptates illo molestias vitae. Quam saepe quos veritatis rem cum excepturi
+                            laudantium perspiciatis id assumenda? Fugiat fugit dicta vitae expedita. Natus fugiat modi saepe
+                            neque commodi obcaecati officia iste adipisci, sed molestiae eveniet possimus suscipit vel quae
+                            facere eius ipsum quo corrupti iusto excepturi odit consequuntur deleniti ut. Porro, cumque ratione
+                            tempora sint deleniti natus unde! Nemo repellendus dolores, non labore cumque exercitationem quae
+                            eos similique laboriosam mollitia quas iusto excepturi vitae laudantium reiciendis illum pariatur at
+                            tempora maxime soluta! Ad, voluptatum commodi ab quae aliquam sunt veniam voluptatibus dignissimos
+                            asperiores officiis molestias ipsum magnam quos sapiente repellendus a aut facilis necessitatibus
+                            distinctio. Ipsum alias odio animi, velit neque eum quae voluptatem, ea quam corporis sunt
+                            perspiciatis asperiores explicabo, autem dolores unde expedita repudiandae modi! Eveniet,
+                            dignissimos maxime? Corporis voluptas asperiores, placeat omnis sequi incidunt nobis rerum atque
+                            iusto distinctio unde dolorem voluptatum vitae repellendus expedita illo dolorum quasi, tempora
+                            cumque praesentium. Deleniti cupiditate velit libero rem architecto repudiandae unde quo quidem
+                            maiores voluptate veritatis provident laborum placeat quis sequi laboriosam, eos earum dignissimos
+                            iste, accusantium esse! Assumenda officiis enim rem molestias velit facilis, recusandae unde nulla
+                            eius odio id iure dolor pariatur accusamus asperiores magnam, tenetur quas ullam culpa laborum.
+                            Saepe voluptatem, ipsam non assumenda natus in sed deleniti reprehenderit quidem sequi? Voluptatibus
+                            enim recusandae iure, dignissimos dolorum eligendi necessitatibus nobis deserunt a. Distinctio quis
+                            tempora, sed illo praesentium accusantium nihil quo dolor, odio aliquid repudiandae qui laborum
+                            velit architecto cum esse cumque impedit error mollitia saepe obcaecati doloremque aperiam facere
+                            vel. Perspiciatis culpa aut vitae consectetur, doloremque exercitationem earum rerum ea veniam atque
+                            quod soluta voluptate animi, cupiditate cumque mollitia laudantium fuga quae aspernatur incidunt
+                            explicabo tempore. Nisi, doloremque numquam quam sequi vero amet repellat accusamus delectus harum
+                            commodi dolor alias quo praesentium quis eos rem totam quos atque saepe temporibus nobis. Velit aut,
+                            molestiae recusandae corrupti nobis cumque voluptates reiciendis ex expedita ad amet dicta
+                            perferendis totam odio necessitatibus nesciunt repellat? Quia voluptate laborum laboriosam,
+                            excepturi facere sit. Aliquid sint, nobis voluptate cupiditate maiores, tempore unde totam pariatur,
+                            autem eum odit necessitatibus omnis accusantium neque! Eaque, quae saepe dignissimos qui sed ducimus
+                            cum quidem minima?</p>
+        
+                        <!-- Timeline Section -->
+                        <div class="timeline-section">
+                            <div class="timeline-header">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <h2 class="timeline-title">Our Journey Through Time</h2>
+                            </div>
+        
+                            <div class="history-grid">
+                                <!-- Founding Years Card -->
+                                <div class="history-card">
+                                    <div class="card-image">
+                                        <img src="asset/img/slider/1.webp" alt="University founding">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-year">1990</span>
+                                        <h3 class="card-title">The Founding Vision</h3>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        </p>
+                                        <a href="founding-vision.html" class="read-more">
+                                            Learn More <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+        
+                                <!-- Growth Period Card -->
+                                <div class="history-card">
+                                    <div class="card-image">
+                                        <img src="asset/img/slider/2.webp" alt="Campus expansion">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-year">2000</span>
+                                        <h3 class="card-title">Era of Expansion</h3>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad
+                                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                        <a href="#" class="read-more">
+                                            Learn More <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+        
+                                <!-- Modern Era Card -->
+                                <div class="history-card">
+                                    <div class="card-image">
+                                        <img src="asset/img/slider/3.webp" alt="Modern campus">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-year">2020</span>
+                                        <h3 class="card-title">Digital Revolution</h3>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur
+                                            sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                                        <a href="#" class="read-more">
+                                            Learn More <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Stats Section -->
+                            <div class="stat-cards">
+                                <div class="stat-card">
+                                    <div class="stat-number">30+</div>
+                                    <div class="stat-label">Years of Excellence</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">50,000+</div>
+                                    <div class="stat-label">Alumni Worldwide</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">200+</div>
+                                    <div class="stat-label">Academic Programs</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">1000+</div>
+                                    <div class="stat-label">Faculty Members</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-    
-                <!-- Timeline Section -->
-                <div class="timeline-section">
-                    <div class="timeline-header">
-                        <div class="timeline-icon">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <h2 class="timeline-title">Our Journey Through Time</h2>
-                    </div>
-    
-                    <div class="history-grid">
-                        <!-- Founding Years Card -->
-                        <div class="history-card">
-                            <div class="card-image">
-                                <img src="asset/img/slider/1.webp" alt="University founding">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-year">1990</span>
-                                <h3 class="card-title">The Founding Vision</h3>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                <a href="founding-vision.html" class="read-more">
-                                    Learn More <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <!-- Growth Period Card -->
-                        <div class="history-card">
-                            <div class="card-image">
-                                <img src="asset/img/slider/2.webp" alt="Campus expansion">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-year">2000</span>
-                                <h3 class="card-title">Era of Expansion</h3>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                                <a href="#" class="read-more">
-                                    Learn More <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <!-- Modern Era Card -->
-                        <div class="history-card">
-                            <div class="card-image">
-                                <img src="asset/img/slider/3.webp" alt="Modern campus">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-year">2020</span>
-                                <h3 class="card-title">Digital Revolution</h3>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-                                <a href="#" class="read-more">
-                                    Learn More <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Stats Section -->
-                    <div class="stat-cards">
-                        <div class="stat-card">
-                            <div class="stat-number">30+</div>
-                            <div class="stat-label">Years of Excellence</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">50,000+</div>
-                            <div class="stat-label">Alumni Worldwide</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label">Academic Programs</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">1000+</div>
-                            <div class="stat-label">Faculty Members</div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
     </div>
-    
+
 
     <footer class="footer">
         <div class="container">
