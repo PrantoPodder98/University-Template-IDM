@@ -166,6 +166,67 @@
                 padding: 2rem;
             }
         }
+
+        /* Add new sidebar styles */
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-title {
+            color: #307e4a;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: #666;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav a:hover {
+            background: #f8f9fa;
+            color: #307e4a;
+        }
+
+        .sidebar-nav a.active {
+            background: #307e4a;
+            color: white;
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                margin-bottom: 2rem;
+                position: static;
+            }
+        }
     </style>
 
 </head>
@@ -396,192 +457,305 @@
     <div class="my-5">
         <section class="ug-admission-section py-5">
             <div class="container">
-                <div class="admission-header text-center mb-5">
-                    <span class="badge bg-success mb-2">Admission Open 2024</span>
-                    <h1 class="display-4 mb-3">Undergraduate Admission</h1>
-                    <p class="lead text-muted">Take the first step towards your future with Nextgen University</p>
-                    <div class="deadline-banner">
-                        <i class="fas fa-clock"></i>
-                        Application Deadline: October 15, 2024
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="sidebar">
+                            <h3 class="sidebar-title">Navigation</h3>
+                            <ul class="sidebar-nav">
+                                <li>
+                                    <a href="#program-card">
+                                        <i class="fas fa-landmark"></i>
+                                        Available Programs 
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#requirements-card">
+                                        <i class="fas fa-building"></i>
+                                        Admission Requirements
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tution-card">
+                                        <i class="fas fa-laptop"></i>
+                                        Tuition & Aid
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#apply-card">
+                                        <i class="fas fa-laptop"></i>
+                                        Apply Now
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="admission-header text-center mb-5">
+                            <span class="badge bg-success mb-2">Admission Open 2024</span>
+                            <h1 class="display-4 mb-3">Undergraduate Admission</h1>
+                            <p class="lead text-muted">Take the first step towards your future with Nextgen University
+                            </p>
+                            <div class="deadline-banner">
+                                <i class="fas fa-clock"></i>
+                                Application Deadline: October 15, 2024
+                            </div>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nihil repudiandae
+                            eveniet
+                            eum maiores sit aliquam nulla quas excepturi voluptates consequatur nam cumque similique
+                            dolore
+                            temporibus rerum deleniti aperiam eius, dignissimos veritatis debitis. Doloribus optio
+                            voluptatem
+                            beatae voluptates aut! Et, reprehenderit, laborum fugit cumque explicabo provident nobis
+                            numquam,
+                            ratione veritatis debitis illo quam laboriosam harum labore. Vel pariatur adipisci animi non
+                            consequatur ad, reiciendis quibusdam a recusandae autem architecto incidunt facere earum
+                            deleniti
+                            laborum atque ipsum id sequi maiores voluptate iste ipsam. Delectus exercitationem eum
+                            asperiores
+                            est beatae possimus non aperiam itaque minus odio nihil voluptatum animi maxime, nobis
+                            facere sint
+                            earum doloremque! In, repellat. Sed dolore reprehenderit ipsam odio, sunt earum assumenda
+                            alias,
+                            asperiores quaerat deleniti sit laboriosam, vel vero laudantium ipsa fugiat esse aliquid!
+                            Tempora id
+                            minus quisquam quas corrupti eaque, voluptatibus tempore molestiae fugit recusandae
+                            reiciendis
+                            laborum ea nemo porro earum possimus quod commodi nihil magnam reprehenderit. Veniam
+                            voluptate
+                            deserunt aperiam delectus sint aliquid repellat eveniet illo corrupti, nam voluptatem
+                            accusamus
+                            distinctio, animi molestias ducimus eos iure ratione dicta! Error rem delectus vitae
+                            expedita
+                            dolorum ullam amet veritatis, libero ratione placeat, cupiditate incidunt nisi illum fugiat
+                            neque!
+                            Modi dicta doloremque voluptates exercitationem vitae tenetur at quibusdam id adipisci.
+                            Omnis nihil
+                            magnam sunt similique saepe sit atque eos, delectus blanditiis, qui tenetur nostrum ut vero,
+                            cupiditate eaque? Soluta molestias ut, nemo facere magni earum culpa at similique optio
+                            sapiente
+                            eos, enim, cum quis ipsum quasi maiores voluptates mollitia? Eius tempora quod voluptatem
+                            deleniti
+                            alias nihil in debitis voluptates repellat repudiandae quis hic, doloribus officiis fugiat
+                            soluta
+                            esse totam est, commodi excepturi aut ratione. Tempora hic labore sunt deleniti
+                            reprehenderit nam
+                            rem pariatur error quod nisi amet, suscipit quia aliquid! Dolores vitae id asperiores nemo
+                            aliquid
+                            earum deserunt aliquam reprehenderit nihil quis consequuntur facilis, quod provident iste
+                            molestias
+                            accusantium laudantium excepturi totam et at inventore non. Illum nam hic culpa repudiandae
+                            officia
+                            et odit, modi doloribus amet temporibus porro recusandae minima in, suscipit repellat nulla
+                            doloremque. Ex odio qui laboriosam illum voluptatem nostrum velit perspiciatis voluptas
+                            repellat ab
+                            asperiores molestiae libero tempora commodi, deleniti illo, expedita labore ipsam vero. Sint
+                            aut hic
+                            dolores reiciendis, facilis porro optio voluptates recusandae debitis, nihil esse. Deserunt
+                            voluptate quae similique perspiciatis iure dolorum libero? Commodi ab culpa incidunt
+                            architecto
+                            magni, perferendis neque eaque officiis iure ipsa excepturi quis qui placeat temporibus iste
+                            animi
+                            amet distinctio maiores, recusandae itaque. Assumenda ipsum esse corrupti nesciunt eaque.
+                            Repellendus praesentium nobis incidunt nostrum deleniti id aperiam similique hic tempora
+                            natus
+                            eaque, sapiente, neque est, nemo modi aut facere accusantium officiis! Ex enim officiis
+                            sequi culpa
+                            blanditiis maxime, dolores accusantium harum corrupti. Hic voluptates quisquam aspernatur
+                            unde ad
+                            ullam doloribus sapiente labore iure fugit autem in voluptate quam obcaecati quidem
+                            reprehenderit
+                            nostrum assumenda temporibus quas quod facere, cupiditate atque dolore praesentium. Eum quos
+                            dolorem
+                            mollitia sit ab repellat tempore. At, doloremque doloribus! Suscipit eius reiciendis,
+                            ratione
+                            aliquid nesciunt obcaecati inventore ut laboriosam odio, animi dicta perferendis praesentium
+                            reprehenderit corporis non repudiandae velit sapiente consectetur est, rem perspiciatis
+                            ipsum
+                            tenetur cum eos. Adipisci quisquam libero facere, sequi itaque dicta cupiditate suscipit.
+                            Illum,
+                            praesentium perspiciatis nisi facilis aspernatur vero eius ipsam quas aperiam autem qui
+                            molestiae
+                            est consectetur tenetur quis dignissimos delectus nihil. Reiciendis quaerat minus hic dolore
+                            cupiditate omnis unde provident. Nihil iure animi ab quam. Quisquam a ipsum vero officiis
+                            doloribus.
+                            Quod.
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, culpa non dolore fuga nulla
+                            fugit
+                            suscipit facere neque ullam iure, sunt laborum aliquam expedita esse nesciunt ipsum
+                            veritatis ab
+                            libero repellat nam? Nisi, totam nostrum obcaecati dolorum, quos atque enim, ullam dolore
+                            veritatis
+                            dignissimos neque error itaque temporibus nulla! Asperiores ipsa adipisci quia temporibus
+                            dolorum
+                            incidunt qui iste explicabo inventore ut! Non, deserunt ipsa. Illum, neque sunt aperiam
+                            obcaecati
+                            libero voluptates molestiae ratione ipsum provident beatae nihil voluptatum est tenetur ex
+                            voluptate. Odio ducimus eligendi id magnam, quam perferendis quos vel qui, iusto soluta
+                            ratione
+                            cupiditate modi culpa ipsam iste repellendus dolore. Iste possimus similique reiciendis,
+                            ipsam iure
+                            in laudantium, libero id incidunt nobis praesentium iusto asperiores voluptatibus maiores
+                            est, nisi
+                            numquam. Vitae inventore nihil eius voluptates, esse sequi est sit ratione minus debitis.
+                            Debitis,
+                            possimus laboriosam illo praesentium dolorum vitae repudiandae reprehenderit inventore ipsum
+                            quisquam, quos molestias blanditiis voluptatibus similique molestiae, ea quo! Sint ducimus
+                            magni
+                            aspernatur eum consequuntur ipsum vel ipsam incidunt ab a. Laudantium accusantium corrupti
+                            suscipit
+                            maxime adipisci beatae voluptatum numquam modi, doloremque quisquam nulla voluptatem? Fuga
+                            esse aut,
+                            nobis illum laborum officiis qui facilis aperiam ea ex deleniti quam quis dolorem labore
+                            numquam
+                            vero amet dicta ullam praesentium recusandae unde veritatis? Ad modi omnis quibusdam
+                            doloremque
+                            distinctio consequuntur eveniet id culpa molestiae provident minus odit, qui obcaecati neque
+                            et
+                            magni veniam impedit enim recusandae voluptatem. Voluptatem ad earum aspernatur odio quasi
+                            minima ea
+                            explicabo autem tenetur nostrum esse, laudantium sit exercitationem adipisci. Doloribus
+                            reprehenderit, distinctio necessitatibus praesentium sapiente officiis aliquid quas est, rem
+                            sequi
+                            eius! Laudantium atque adipisci voluptatem, assumenda amet ducimus quos, maxime doloremque
+                            fuga
+                            mollitia numquam dolorum facere voluptate quae. Iste quae nostrum perferendis explicabo,
+                            fugiat qui
+                            optio cupiditate quasi modi animi eveniet veritatis. Incidunt sint commodi voluptate facilis
+                            in
+                            eaque possimus ipsum!
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias vero saepe, illum
+                            beatae,
+                            perspiciatis qui assumenda expedita eos tenetur voluptates odit atque nobis consequuntur
+                            eligendi
+                            voluptatem culpa doloremque quisquam esse natus modi iste, sunt aspernatur. Quos, beatae
+                            assumenda
+                            placeat, quae tenetur hic veniam, animi nihil nisi tempora numquam. Reiciendis assumenda
+                            amet
+                            cupiditate ipsam laboriosam error deserunt voluptatibus aperiam animi illo similique
+                            architecto
+                            ullam voluptas quibusdam perferendis repudiandae, at facere? Voluptatibus alias quia
+                            ratione!
+                            Facilis itaque commodi harum excepturi accusamus perspiciatis cum repudiandae iure obcaecati
+                            inventore deleniti dolor culpa atque doloremque minus corrupti vitae amet totam provident,
+                            fugiat
+                            est beatae ipsa veniam? Excepturi odit atque hic saepe, perferendis porro neque molestiae
+                            labore?
+                            Exercitationem, consequuntur impedit corporis facere eligendi vero adipisci amet dicta
+                            inventore
+                            necessitatibus qui cupiditate cum perferendis iusto neque dolore, natus hic animi illum
+                            mollitia.
+                            Dolorum deleniti repellendus nihil architecto accusamus rem odit quis sit tempora optio
+                            neque dicta,
+                            impedit quaerat maxime tenetur quibusdam et accusantium consectetur. In eum dicta nesciunt
+                            perferendis consectetur vitae aliquam dolor labore. Itaque pariatur sunt id cumque natus
+                            inventore
+                            animi cupiditate saepe laudantium ea at quaerat reprehenderit rerum, neque voluptatem culpa
+                            fuga
+                            iure quis a quod? Dolorem, eos consequuntur veniam facilis atque in iste deserunt, tempora
+                            tenetur
+                            libero minus nesciunt reiciendis aliquam, ex voluptate voluptatibus rerum nam sequi! Quod
+                            placeat ut
+                            explicabo praesentium, itaque numquam vitae ducimus sunt soluta. Eveniet accusantium
+                            reprehenderit
+                            culpa? Corporis, aliquid. Aliquid inventore optio rerum laboriosam nobis iusto labore
+                            accusantium,
+                            commodi rem obcaecati eius atque nesciunt quidem nam aperiam deleniti accusamus odio debitis
+                            consequuntur suscipit nihil beatae. Cumque ea incidunt corporis modi atque facere quos
+                            dignissimos
+                            reprehenderit tenetur, explicabo odio quaerat! Libero eaque culpa consequatur repudiandae
+                            neque
+                            velit. Adipisci, necessitatibus nesciunt commodi, at voluptates excepturi tenetur magni non
+                            autem
+                            aut modi.
+                        </p>
+
+                        <div class="admission-cards">
+                            <div class="row g-4">
+                                <!-- Programs Card -->
+                                <div class="col-lg-6 col-md-6" id="program-card">
+                                    <div class="admission-card h-100">
+                                        <div class="card-icon bg-primary-soft">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <h3>Available Programs</h3>
+                                        <ul class="program-list">
+                                            <li>Computer Science & Engineering</li>
+                                            <li>Business Administration</li>
+                                            <li>Electrical Engineering</li>
+                                            <li>Architecture</li>
+                                            <li>Law</li>
+                                        </ul>
+                                        <a class="btn btn-outline-primary" href="all-departments.html">
+                                            View All Programs
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Requirements Card -->
+                                <div class="col-lg-6 col-md-6" id="requirements-card">
+                                    <div class="admission-card h-100">
+                                        <div class="card-icon bg-success-soft">
+                                            <i class="fas fa-list-check"></i>
+                                        </div>
+                                        <h3>Admission Requirements</h3>
+                                        <ul class="requirements-list">
+                                            <li>Minimum GPA 3.0 in SSC & HSC</li>
+                                            <li>Valid SAT/ACT Scores</li>
+                                            <li>English Proficiency Test</li>
+                                            <li>Statement of Purpose</li>
+                                        </ul>
+                                        <!-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#requirementsModal">
+                                            Full Requirements
+                                        </button> -->
+                                    </div>
+                                </div>
+
+                                <!-- Tuition Card -->
+                                <div class="col-lg-12 col-md-6" id="tution-card">
+                                    <div class="admission-card h-100">
+                                        <div class="card-icon bg-info-soft">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </div>
+                                        <h3>Tuition & Aid</h3>
+                                        <div class="tuition-info">
+                                            <div class="fee-item">
+                                                <span>Application Fee:</span>
+                                                <strong>$75</strong>
+                                            </div>
+                                            <div class="fee-item">
+                                                <span>Per Credit Hour:</span>
+                                                <strong>$350</strong>
+                                            </div>
+                                            <div class="scholarship-note">
+                                                Merit scholarships up to 100%
+                                            </div>
+                                        </div>
+                                        <!-- <button class="btn btn-outline-info">Financial Details</button> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Apply Now Section -->
+                            <div class="apply-now-section text-center mt-5" id="apply-card">
+                                <div class="apply-card">
+                                    <h2>Ready to Begin Your Journey?</h2>
+                                    <p>Join our community of future leaders and innovators</p>
+                                    <a href="application-apply.html" class="btn btn-primary btn-lg apply-now-btn">
+                                        <i class="fas fa-paper-plane me-2"></i>
+                                        Apply Now
+                                    </a>
+                                    <div class="help-text mt-3">
+                                        Need help? Contact our admission counselors at
+                                        <a href="tel:+880-9604-848-848">+880-9604-848-848</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere magnam nihil repudiandae eveniet
-                    eum maiores sit aliquam nulla quas excepturi voluptates consequatur nam cumque similique dolore
-                    temporibus rerum deleniti aperiam eius, dignissimos veritatis debitis. Doloribus optio voluptatem
-                    beatae voluptates aut! Et, reprehenderit, laborum fugit cumque explicabo provident nobis numquam,
-                    ratione veritatis debitis illo quam laboriosam harum labore. Vel pariatur adipisci animi non
-                    consequatur ad, reiciendis quibusdam a recusandae autem architecto incidunt facere earum deleniti
-                    laborum atque ipsum id sequi maiores voluptate iste ipsam. Delectus exercitationem eum asperiores
-                    est beatae possimus non aperiam itaque minus odio nihil voluptatum animi maxime, nobis facere sint
-                    earum doloremque! In, repellat. Sed dolore reprehenderit ipsam odio, sunt earum assumenda alias,
-                    asperiores quaerat deleniti sit laboriosam, vel vero laudantium ipsa fugiat esse aliquid! Tempora id
-                    minus quisquam quas corrupti eaque, voluptatibus tempore molestiae fugit recusandae reiciendis
-                    laborum ea nemo porro earum possimus quod commodi nihil magnam reprehenderit. Veniam voluptate
-                    deserunt aperiam delectus sint aliquid repellat eveniet illo corrupti, nam voluptatem accusamus
-                    distinctio, animi molestias ducimus eos iure ratione dicta! Error rem delectus vitae expedita
-                    dolorum ullam amet veritatis, libero ratione placeat, cupiditate incidunt nisi illum fugiat neque!
-                    Modi dicta doloremque voluptates exercitationem vitae tenetur at quibusdam id adipisci. Omnis nihil
-                    magnam sunt similique saepe sit atque eos, delectus blanditiis, qui tenetur nostrum ut vero,
-                    cupiditate eaque? Soluta molestias ut, nemo facere magni earum culpa at similique optio sapiente
-                    eos, enim, cum quis ipsum quasi maiores voluptates mollitia? Eius tempora quod voluptatem deleniti
-                    alias nihil in debitis voluptates repellat repudiandae quis hic, doloribus officiis fugiat soluta
-                    esse totam est, commodi excepturi aut ratione. Tempora hic labore sunt deleniti reprehenderit nam
-                    rem pariatur error quod nisi amet, suscipit quia aliquid! Dolores vitae id asperiores nemo aliquid
-                    earum deserunt aliquam reprehenderit nihil quis consequuntur facilis, quod provident iste molestias
-                    accusantium laudantium excepturi totam et at inventore non. Illum nam hic culpa repudiandae officia
-                    et odit, modi doloribus amet temporibus porro recusandae minima in, suscipit repellat nulla
-                    doloremque. Ex odio qui laboriosam illum voluptatem nostrum velit perspiciatis voluptas repellat ab
-                    asperiores molestiae libero tempora commodi, deleniti illo, expedita labore ipsam vero. Sint aut hic
-                    dolores reiciendis, facilis porro optio voluptates recusandae debitis, nihil esse. Deserunt
-                    voluptate quae similique perspiciatis iure dolorum libero? Commodi ab culpa incidunt architecto
-                    magni, perferendis neque eaque officiis iure ipsa excepturi quis qui placeat temporibus iste animi
-                    amet distinctio maiores, recusandae itaque. Assumenda ipsum esse corrupti nesciunt eaque.
-                    Repellendus praesentium nobis incidunt nostrum deleniti id aperiam similique hic tempora natus
-                    eaque, sapiente, neque est, nemo modi aut facere accusantium officiis! Ex enim officiis sequi culpa
-                    blanditiis maxime, dolores accusantium harum corrupti. Hic voluptates quisquam aspernatur unde ad
-                    ullam doloribus sapiente labore iure fugit autem in voluptate quam obcaecati quidem reprehenderit
-                    nostrum assumenda temporibus quas quod facere, cupiditate atque dolore praesentium. Eum quos dolorem
-                    mollitia sit ab repellat tempore. At, doloremque doloribus! Suscipit eius reiciendis, ratione
-                    aliquid nesciunt obcaecati inventore ut laboriosam odio, animi dicta perferendis praesentium
-                    reprehenderit corporis non repudiandae velit sapiente consectetur est, rem perspiciatis ipsum
-                    tenetur cum eos. Adipisci quisquam libero facere, sequi itaque dicta cupiditate suscipit. Illum,
-                    praesentium perspiciatis nisi facilis aspernatur vero eius ipsam quas aperiam autem qui molestiae
-                    est consectetur tenetur quis dignissimos delectus nihil. Reiciendis quaerat minus hic dolore
-                    cupiditate omnis unde provident. Nihil iure animi ab quam. Quisquam a ipsum vero officiis doloribus.
-                    Quod.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias, culpa non dolore fuga nulla fugit
-                    suscipit facere neque ullam iure, sunt laborum aliquam expedita esse nesciunt ipsum veritatis ab
-                    libero repellat nam? Nisi, totam nostrum obcaecati dolorum, quos atque enim, ullam dolore veritatis
-                    dignissimos neque error itaque temporibus nulla! Asperiores ipsa adipisci quia temporibus dolorum
-                    incidunt qui iste explicabo inventore ut! Non, deserunt ipsa. Illum, neque sunt aperiam obcaecati
-                    libero voluptates molestiae ratione ipsum provident beatae nihil voluptatum est tenetur ex
-                    voluptate. Odio ducimus eligendi id magnam, quam perferendis quos vel qui, iusto soluta ratione
-                    cupiditate modi culpa ipsam iste repellendus dolore. Iste possimus similique reiciendis, ipsam iure
-                    in laudantium, libero id incidunt nobis praesentium iusto asperiores voluptatibus maiores est, nisi
-                    numquam. Vitae inventore nihil eius voluptates, esse sequi est sit ratione minus debitis. Debitis,
-                    possimus laboriosam illo praesentium dolorum vitae repudiandae reprehenderit inventore ipsum
-                    quisquam, quos molestias blanditiis voluptatibus similique molestiae, ea quo! Sint ducimus magni
-                    aspernatur eum consequuntur ipsum vel ipsam incidunt ab a. Laudantium accusantium corrupti suscipit
-                    maxime adipisci beatae voluptatum numquam modi, doloremque quisquam nulla voluptatem? Fuga esse aut,
-                    nobis illum laborum officiis qui facilis aperiam ea ex deleniti quam quis dolorem labore numquam
-                    vero amet dicta ullam praesentium recusandae unde veritatis? Ad modi omnis quibusdam doloremque
-                    distinctio consequuntur eveniet id culpa molestiae provident minus odit, qui obcaecati neque et
-                    magni veniam impedit enim recusandae voluptatem. Voluptatem ad earum aspernatur odio quasi minima ea
-                    explicabo autem tenetur nostrum esse, laudantium sit exercitationem adipisci. Doloribus
-                    reprehenderit, distinctio necessitatibus praesentium sapiente officiis aliquid quas est, rem sequi
-                    eius! Laudantium atque adipisci voluptatem, assumenda amet ducimus quos, maxime doloremque fuga
-                    mollitia numquam dolorum facere voluptate quae. Iste quae nostrum perferendis explicabo, fugiat qui
-                    optio cupiditate quasi modi animi eveniet veritatis. Incidunt sint commodi voluptate facilis in
-                    eaque possimus ipsum!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias vero saepe, illum beatae,
-                    perspiciatis qui assumenda expedita eos tenetur voluptates odit atque nobis consequuntur eligendi
-                    voluptatem culpa doloremque quisquam esse natus modi iste, sunt aspernatur. Quos, beatae assumenda
-                    placeat, quae tenetur hic veniam, animi nihil nisi tempora numquam. Reiciendis assumenda amet
-                    cupiditate ipsam laboriosam error deserunt voluptatibus aperiam animi illo similique architecto
-                    ullam voluptas quibusdam perferendis repudiandae, at facere? Voluptatibus alias quia ratione!
-                    Facilis itaque commodi harum excepturi accusamus perspiciatis cum repudiandae iure obcaecati
-                    inventore deleniti dolor culpa atque doloremque minus corrupti vitae amet totam provident, fugiat
-                    est beatae ipsa veniam? Excepturi odit atque hic saepe, perferendis porro neque molestiae labore?
-                    Exercitationem, consequuntur impedit corporis facere eligendi vero adipisci amet dicta inventore
-                    necessitatibus qui cupiditate cum perferendis iusto neque dolore, natus hic animi illum mollitia.
-                    Dolorum deleniti repellendus nihil architecto accusamus rem odit quis sit tempora optio neque dicta,
-                    impedit quaerat maxime tenetur quibusdam et accusantium consectetur. In eum dicta nesciunt
-                    perferendis consectetur vitae aliquam dolor labore. Itaque pariatur sunt id cumque natus inventore
-                    animi cupiditate saepe laudantium ea at quaerat reprehenderit rerum, neque voluptatem culpa fuga
-                    iure quis a quod? Dolorem, eos consequuntur veniam facilis atque in iste deserunt, tempora tenetur
-                    libero minus nesciunt reiciendis aliquam, ex voluptate voluptatibus rerum nam sequi! Quod placeat ut
-                    explicabo praesentium, itaque numquam vitae ducimus sunt soluta. Eveniet accusantium reprehenderit
-                    culpa? Corporis, aliquid. Aliquid inventore optio rerum laboriosam nobis iusto labore accusantium,
-                    commodi rem obcaecati eius atque nesciunt quidem nam aperiam deleniti accusamus odio debitis
-                    consequuntur suscipit nihil beatae. Cumque ea incidunt corporis modi atque facere quos dignissimos
-                    reprehenderit tenetur, explicabo odio quaerat! Libero eaque culpa consequatur repudiandae neque
-                    velit. Adipisci, necessitatibus nesciunt commodi, at voluptates excepturi tenetur magni non autem
-                    aut modi.
-                </p>
 
-                <div class="admission-cards">
-                    <div class="row g-4">
-                        <!-- Programs Card -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="admission-card h-100">
-                                <div class="card-icon bg-primary-soft">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <h3>Available Programs</h3>
-                                <ul class="program-list">
-                                    <li>Computer Science & Engineering</li>
-                                    <li>Business Administration</li>
-                                    <li>Electrical Engineering</li>
-                                    <li>Architecture</li>
-                                    <li>Law</li>
-                                </ul>
-                                <a class="btn btn-outline-primary" href="all-departments.html">
-                                    View All Programs
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Requirements Card -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="admission-card h-100">
-                                <div class="card-icon bg-success-soft">
-                                    <i class="fas fa-list-check"></i>
-                                </div>
-                                <h3>Admission Requirements</h3>
-                                <ul class="requirements-list">
-                                    <li>Minimum GPA 3.0 in SSC & HSC</li>
-                                    <li>Valid SAT/ACT Scores</li>
-                                    <li>English Proficiency Test</li>
-                                    <li>Statement of Purpose</li>
-                                </ul>
-                                <!-- <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#requirementsModal">
-                                    Full Requirements
-                                </button> -->
-                            </div>
-                        </div>
-
-                        <!-- Tuition Card -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="admission-card h-100">
-                                <div class="card-icon bg-info-soft">
-                                    <i class="fas fa-dollar-sign"></i>
-                                </div>
-                                <h3>Tuition & Aid</h3>
-                                <div class="tuition-info">
-                                    <div class="fee-item">
-                                        <span>Application Fee:</span>
-                                        <strong>$75</strong>
-                                    </div>
-                                    <div class="fee-item">
-                                        <span>Per Credit Hour:</span>
-                                        <strong>$350</strong>
-                                    </div>
-                                    <div class="scholarship-note">
-                                        Merit scholarships up to 100%
-                                    </div>
-                                </div>
-                                <!-- <button class="btn btn-outline-info">Financial Details</button> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Apply Now Section -->
-                    <div class="apply-now-section text-center mt-5">
-                        <div class="apply-card">
-                            <h2>Ready to Begin Your Journey?</h2>
-                            <p>Join our community of future leaders and innovators</p>
-                            <a href="application-apply.html" class="btn btn-primary btn-lg apply-now-btn">
-                                <i class="fas fa-paper-plane me-2"></i>
-                                Apply Now
-                            </a>
-                            <div class="help-text mt-3">
-                                Need help? Contact our admission counselors at
-                                <a href="tel:+880-9604-848-848">+880-9604-848-848</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </div>
