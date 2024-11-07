@@ -1,0 +1,879 @@
+Post graduate program : 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postgraduate Admission</title>
+    <style>
+        /* Set the background color to white */
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header and section styling */
+        h1, h2, h3 {
+            color: #00563f; /* Dark green for headings */
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9; /* Light background for section content */
+            border-radius: 5px;
+        }
+
+        /* Form styling */
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #00563f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #00452e;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #00563f; /* Dark green background */
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Success message styling */
+        .success {
+            color: green;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Postgraduate Admission Application</h1>
+
+    <section>
+        <h2>Welcome to the Postgraduate Admissions</h2>
+        <p>Our postgraduate programs offer a world-class educational experience...</p>
+        
+        <h3>Graduate Admission Requirements</h3>
+        <ul>
+            <li>The terms & conditions of undergraduate programs mentioned above will also apply...</li>
+            <li>A relevant undergraduate degree...</li>
+        </ul>
+
+        <h3>Application Deadlines</h3>
+        <ul>
+            <li><strong>Application Opens:</strong> January 1, 2025</li>
+            <li><strong>Application Deadline:</strong> March 15, 2025</li>
+        </ul>
+
+        <h3>Program Highlights</h3>
+        <ul>
+            <li>A research-focused curriculum...</li>
+            <li>Access to state-of-the-art labs...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Application Form</h2>
+        <form id="applicationForm" action="submit_application.php" method="post" onsubmit="return validateForm()">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="program">Program of Interest:</label>
+            <select id="program" name="program" required>
+                <option value="">Select a program</option>
+                <option value="MSc in Computer Science">MSc in Computer Science</option>
+                <option value="MBA in Management">MBA in Management</option>
+                <option value="MA in Psychology">MA in Psychology</option>
+                <option value="MSc in Data Science">MSc in Data Science</option>
+            </select><br><br>
+
+            <label for="education">Previous Education:</label>
+            <input type="text" id="education" name="education" placeholder="e.g., BSc in Engineering" required><br><br>
+
+            <label for="gpa">Undergraduate GPA:</label>
+            <input type="text" id="gpa" name="gpa" required><br><br>
+            
+            <label for="experience">Professional Experience (if any):</label>
+            <textarea id="experience" name="experience" rows="4" cols="50" placeholder="Briefly describe your work experience."></textarea><br><br>
+
+            <label for="documents">Upload Supporting Documents:</label>
+            <input type="file" id="documents" name="documents[]" multiple><br><br>
+
+            <button type="submit">Submit Application</button>
+        </form>
+        <div id="errorMessages" class="error"></div>
+        <div id="successMessage" class="success" style="display:none;">Your application has been successfully submitted!</div>
+    </section>
+
+    <footer>
+        <p>For any questions regarding the application process, please contact our admissions office at <a href="mailto:admissions@nextgenuniversity.edu">admissions@nextgenuniversity.edu</a> or call +123 456 7890.</p>
+    </footer>
+
+    <script>
+        function validateForm() {
+            let errorMessages = '';
+            let isValid = true;
+
+            // Clear success and error messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessages').innerHTML = '';
+
+            // Validate GPA: Must be a number between 0 and 4
+            let gpa = document.getElementById('gpa').value;
+            if (isNaN(gpa) || gpa < 0 || gpa > 4) {
+                errorMessages += 'Please enter a valid GPA (between 0 and 4).<br>';
+                isValid = false;
+            }
+
+            // Additional validation for email (not strictly necessary, as it's built-in)
+            let email = document.getElementById('email').value;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                errorMessages += 'Please enter a valid email address.<br>';
+                isValid = false;
+            }
+
+            // Display error messages if any validation fails
+            if (!isValid) {
+                document.getElementById('errorMessages').innerHTML = errorMessages;
+            } else {
+                // Show success message and prevent form submission
+                document.getElementById('successMessage').style.display = 'block';
+                return false; // Prevent actual form submission for demo purposes
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+-------------------------------------------------
+--------------------------------------------------
+------------------------------------------------------
+-------------------------------------------------------
+
+
+
+1. Creating the MySQL Database and Table
+
+-- Create the database (if not already created)
+CREATE DATABASE postgraduate_admissions;
+
+-- Use the database
+USE postgraduate_admissions;
+
+-- Create the admissions table
+CREATE TABLE applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    program VARCHAR(255) NOT NULL,
+    education VARCHAR(255) NOT NULL,
+    gpa DECIMAL(3, 2) NOT NULL,
+    experience TEXT,
+    documents VARCHAR(255), -- For storing document paths or names (if needed)
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-------------
+-----------------
+
+
+2. PHP Script to Handle Form Submission
+
+
+<?php
+// Database configuration
+$servername = "localhost"; // Replace with your database server (e.g., 'localhost')
+$username = "root";        // Replace with your MySQL username
+$password = "";            // Replace with your MySQL password
+$dbname = "postgraduate_admissions"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $program = $_POST['program'];
+    $education = $_POST['education'];
+    $gpa = $_POST['gpa'];
+    $experience = $_POST['experience'];
+
+    // Validate data
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    if (!is_numeric($gpa) || $gpa < 0 || $gpa > 4) {
+        echo "GPA must be a number between 0 and 4.";
+        exit;
+    }
+
+    // Handle file upload (optional)
+    $documents = '';
+    if (isset($_FILES['documents']) && $_FILES['documents']['error'][0] == 0) {
+        $uploads_dir = 'uploads/';
+        $documents = '';
+        foreach ($_FILES['documents']['name'] as $key => $value) {
+            $temp_name = $_FILES['documents']['tmp_name'][$key];
+            $file_name = basename($_FILES['documents']['name'][$key]);
+            $target_file = $uploads_dir . $file_name;
+            move_uploaded_file($temp_name, $target_file);
+            $documents .= $file_name . ",";
+        }
+        $documents = rtrim($documents, ',');
+    }
+
+    // Insert data into the database
+    $sql = "INSERT INTO applications (name, email, program, education, gpa, experience, documents) 
+            VALUES ('$name', '$email', '$program', '$education', '$gpa', '$experience', '$documents')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Your application has been successfully submitted!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>
+
+
+
+To create a database for your Postgraduate Admission application, you'll need a server-side language (like PHP, Node.js, or Python) and a database (like MySQL or PostgreSQL). I'll show you how to set up a MySQL database and a basic PHP script to handle the form submission.
+
+Steps:
+Create the MySQL Database and Table: We'll create a table to store the form data.
+Create the PHP Script: This script will process the form submission, validate the data, and store it in the database.
+1. Creating the MySQL Database and Table
+sql
+Copy code
+-- Create the database (if not already created)
+CREATE DATABASE postgraduate_admissions;
+
+-- Use the database
+USE postgraduate_admissions;
+
+-- Create the admissions table
+CREATE TABLE applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    program VARCHAR(255) NOT NULL,
+    education VARCHAR(255) NOT NULL,
+    gpa DECIMAL(3, 2) NOT NULL,
+    experience TEXT,
+    documents VARCHAR(255), -- For storing document paths or names (if needed)
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+2. PHP Script to Handle Form Submission
+Here’s a PHP script to process and insert the data into the MySQL database.
+
+File: submit_application.php
+
+php
+Copy code
+<?php
+// Database configuration
+$servername = "localhost"; // Replace with your database server (e.g., 'localhost')
+$username = "root";        // Replace with your MySQL username
+$password = "";            // Replace with your MySQL password
+$dbname = "postgraduate_admissions"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $program = $_POST['program'];
+    $education = $_POST['education'];
+    $gpa = $_POST['gpa'];
+    $experience = $_POST['experience'];
+
+    // Validate data
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    if (!is_numeric($gpa) || $gpa < 0 || $gpa > 4) {
+        echo "GPA must be a number between 0 and 4.";
+        exit;
+    }
+
+    // Handle file upload (optional)
+    $documents = '';
+    if (isset($_FILES['documents']) && $_FILES['documents']['error'][0] == 0) {
+        $uploads_dir = 'uploads/';
+        $documents = '';
+        foreach ($_FILES['documents']['name'] as $key => $value) {
+            $temp_name = $_FILES['documents']['tmp_name'][$key];
+            $file_name = basename($_FILES['documents']['name'][$key]);
+            $target_file = $uploads_dir . $file_name;
+            move_uploaded_file($temp_name, $target_file);
+            $documents .= $file_name . ",";
+        }
+        $documents = rtrim($documents, ',');
+    }
+
+    // Insert data into the database
+    $sql = "INSERT INTO applications (name, email, program, education, gpa, experience, documents) 
+            VALUES ('$name', '$email', '$program', '$education', '$gpa', '$experience', '$documents')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Your application has been successfully submitted!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>
+
+---------------------------------
+------------------------------------
+---------------------------------------
+
+
+
+3. HTML Form Update to Submit to PHP
+
+
+<form id="applicationForm" action="submit_application.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="program">Program of Interest:</label>
+    <select id="program" name="program" required>
+        <option value="">Select a program</option>
+        <option value="MSc in Computer Science">MSc in Computer Science</option>
+        <option value="MBA in Management">MBA in Management</option>
+        <option value="MA in Psychology">MA in Psychology</option>
+        <option value="MSc in Data Science">MSc in Data Science</option>
+    </select><br><br>
+
+    <label for="education">Previous Education:</label>
+    <input type="text" id="education" name="education" placeholder="e.g., BSc in Engineering" required><br><br>
+
+    <label for="gpa">Undergraduate GPA:</label>
+    <input type="text" id="gpa" name="gpa" required><br><br>
+    
+    <label for="experience">Professional Experience (if any):</label>
+    <textarea id="experience" name="experience" rows="4" cols="50" placeholder="Briefly describe your work experience."></textarea><br><br>
+
+    <label for="documents">Upload Supporting Documents:</label>
+    <input type="file" id="documents" name="documents[]" multiple><br><br>
+
+    <button type="submit">Submit Application</button>
+</form>
+
+
+
+----------------
+----------------
+----------------
+
+
+1.
+
+2.submit_application.php
+
+
+3.submit_application.php
+-- Create the database for undergraduate program applications
+CREATE DATABASE undergraduate_admissions;
+
+-- Use the newly created database
+USE undergraduate_admissions;
+
+-- Create the undergraduate applications table
+CREATE TABLE applications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    program VARCHAR(255) NOT NULL,
+    high_school VARCHAR(255) NOT NULL,
+    gpa DECIMAL(3, 2) NOT NULL,
+    extracurricular_activities TEXT,
+    documents VARCHAR(255),
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+---------------------
+
+--------------------------
+
+--------------------------
+
+<?php
+// Database configuration
+$servername = "localhost"; // Replace with your database server (e.g., 'localhost')
+$username = "root";        // Replace with your MySQL username
+$password = "";            // Replace with your MySQL password
+$dbname = "undergraduate_admissions"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $program = $_POST['program'];
+    $high_school = $_POST['high_school'];
+    $gpa = $_POST['gpa'];
+    $extracurricular_activities = $_POST['extracurricular_activities'];
+
+    // Validate data
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    if (!is_numeric($gpa) || $gpa < 0 || $gpa > 4) {
+        echo "GPA must be a number between 0 and 4.";
+        exit;
+    }
+
+    // Handle file upload (optional)
+    $documents = '';
+    if (isset($_FILES['documents']) && $_FILES['documents']['error'][0] == 0) {
+        $uploads_dir = 'uploads/';
+        $documents = '';
+        foreach ($_FILES['documents']['name'] as $key => $value) {
+            $temp_name = $_FILES['documents']['tmp_name'][$key];
+            $file_name = basename($_FILES['documents']['name'][$key]);
+            $target_file = $uploads_dir . $file_name;
+            move_uploaded_file($temp_name, $target_file);
+            $documents .= $file_name . ",";
+        }
+        $documents = rtrim($documents, ',');
+    }
+
+    // Insert data into the database
+    $sql = "INSERT INTO applications (name, email, program, high_school, gpa, extracurricular_activities, documents) 
+            VALUES ('$name', '$email', '$program', '$high_school', '$gpa', '$extracurricular_activities', '$documents')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Your undergraduate application has been successfully submitted!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>
+
+
+------------------
+
+-------------------
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undergraduate Admission Application</title>
+</head>
+<body>
+    <h1>Undergraduate Admission Application</h1>
+    <form action="submit_undergraduate_application.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="program">Program of Interest:</label>
+        <select id="program" name="program" required>
+            <option value="">Select a program</option>
+            <option value="BSc in Computer Science">BSc in Computer Science</option>
+            <option value="BBA in Business Administration">BBA in Business Administration</option>
+            <option value="BA in Psychology">BA in Psychology</option>
+            <option value="BSc in Data Science">BSc in Data Science</option>
+        </select><br><br>
+
+        <label for="high_school">High School or Equivalent Education:</label>
+        <input type="text" id="high_school" name="high_school" required><br><br>
+
+        <label for="gpa">High School GPA:</label>
+        <input type="text" id="gpa" name="gpa" required><br><br>
+
+        <label for="extracurricular_activities">Extracurricular Activities (if any):</label>
+        <textarea id="extracurricular_activities" name="extracurricular_activities" rows="4" cols="50" placeholder="Briefly describe your extracurricular activities."></textarea><br><br>
+
+        <label for="documents">Upload Supporting Documents:</label>
+        <input type="file" id="documents" name="documents[]" multiple><br><br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+</html>
+Below, each HTML file has the necessary CSS merged directly into the <style> section within the <head> tag. This inline style approach will apply directly to each page without the need for an external CSS file.
+
+Innovation Page
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation at Nextgen University</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9f0;
+            color: #333;
+        }
+        .page-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+        }
+        .page-section h1 {
+            text-align: center;
+            color: #008000;
+            margin-bottom: 20px;
+        }
+        .page-section h2 {
+            color: #006400;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .page-section p {
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #008000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-section innovation">
+        <h1>Innovation at Nextgen University</h1>
+        <p>Nextgen University is committed to pioneering advancements in technology, sustainability, and health sciences. We encourage students, faculty, and industry partners to work collaboratively and innovate solutions for global challenges.</p>
+        <h2>Nextgen Innovation Labs</h2>
+        <p>Our <span class="highlight">Nextgen Innovation Labs</span> are equipped with the latest tools and resources in areas such as Artificial Intelligence, Renewable Energy, and Biotechnology. These labs serve as creative hubs where students and researchers can transform ideas into viable solutions.</p>
+        <h2>Annual Innovation Fair</h2>
+        <p>Each year, Nextgen University hosts the <span class="highlight">Annual Innovation Fair</span>, an event where students and faculty present groundbreaking projects. The fair includes keynote speeches from industry leaders, project demonstrations, and competitions, with prizes for the most promising innovations.</p>
+        <h2>Entrepreneurship and Startup Programs</h2>
+        <p>Our <span class="highlight">Startup Incubator</span> provides students with mentorship, access to funding, and resources to launch their own businesses. This program has launched over 50 successful startups, many of which continue to partner with Nextgen to inspire new generations of innovators.</p>
+    </div>
+</body>
+</html>
+
+
+------------------
+--------------------
+
+----------------------
+
+
+Conferences Page
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals at Nextgen University</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9f0;
+            color: #333;
+        }
+        .page-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+        }
+        .page-section h1 {
+            text-align: center;
+            color: #008000;
+            margin-bottom: 20px;
+        }
+        .page-section h2 {
+            color: #006400;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .page-section p {
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #008000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-section journals">
+        <h1>Research Journals at Nextgen University</h1>
+        <p>Nextgen University publishes a series of peer-reviewed journals dedicated to various fields of research, promoting academic integrity and contributing to the global research community.</p>
+        <h2>Journal of Advanced Technology and Innovation</h2>
+        <p>The <span class="highlight">Journal of Advanced Technology and Innovation</span> publishes high-quality research on topics like computational science, artificial intelligence, and emerging technologies.</p>
+        <h2>Nextgen Journal of Humanities and Social Sciences</h2>
+        <p>This journal highlights research across social sciences, literature, and ethics, providing a platform for impactful work in education, cultural studies, and public policy.</p>
+        <h2>Global Health and Biomedical Research Journal</h2>
+        <p>The <span class="highlight">Global Health and Biomedical Research Journal</span> focuses on public health, genetics, and bioengineering research. Its mission is to advance the understanding and treatment of global health issues through innovative research.</p>
+    </div>
+</body>
+</html>
+
+----------------------------
+
+-----------------------------
+
+
+
+
+Conferences Page
+
+
+----
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferences at Nextgen University</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9f0;
+            color: #333;
+        }
+        .page-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+        }
+        .page-section h1 {
+            text-align: center;
+            color: #008000;
+            margin-bottom: 20px;
+        }
+        .page-section h2 {
+            color: #006400;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .page-section p {
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #008000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+  <div class="page-section conferences">
+        <  h1>Upcoming Conferences at Nextgen University</h1>
+        <p>Nextgen University organizes conferences that connect researchers, professionals, and students to discuss advancements in various fields and foster a collaborative environment for new ideas.</p>
+        <h2>Annual Technology and Innovation Summit</h2>
+        <p>The <span class="highlight">Annual Technology and Innovation Summit</span> highlights advancements in AI, cybersecurity, and data science. Renowned speakers from leading companies share insights on emerging trends and technologies.</p>
+        <h2>International Environmental Science Conference</h2>
+        <p>This conference gathers environmental scientists and advocates to address climate change, renewable energy solutions, and sustainability practices. The <span class="highlight">Nextgen Green Initiative</span> leads many discussions here, aiming to create eco-friendly innovations.</p>
+        <h2>Global Health Research Symposium</h2>
+        <p>The <span class="highlight">Global Health Research Symposium</span> invites experts in medical fields to discuss advancements in healthcare, vaccine development, and epidemiology, contributing solutions for public health challenges.</p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+--------------
+
+--------------
+
+--------------
+
+Research Group 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Groups at Nextgen University</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9f0;
+            color: #333;
+        }
+        .page-section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
+        }
+        .page-section h1 {
+            text-align: center;
+            color: #008000;
+            margin-bottom: 20px;
+        }
+        .page-section h2 {
+            color: #006400;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .page-section p {
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #008000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-section research-groups">
+        <h1>Research Groups at Nextgen University</h1>
+        <p>Nextgen University hosts research groups in specialized fields, fostering collaborative research and real-world applications led by faculty experts and active researchers.</p>
+        <h2>Artificial Intelligence and Machine Learning Group</h2>
+        <p>This group advances AI and machine learning by researching deep learning, NLP, and computer vision applications. Recent projects include a <span class="highlight">collaborative AI system</span> for real-time medical diagnostics.</p>
+        <h2>Environmental Sustainability Research Group</h2>
+        <p>The <span class="highlight">Environmental Sustainability Research Group</span> explores solutions to environmental challenges through renewable energy and eco-friendly technology, focusing on practical approaches to reduce carbon emissions.</p>
+        <h2>Biomedical Sciences Group</h2>
+        <p>This group leads research in genomics, personalized medicine, and bioinformatics, collaborating with health organizations to <span class="highlight">develop innovative healthcare solutions</span> for chronic and genetic conditions.</p>
+    </div>
+</body>
+</html>
